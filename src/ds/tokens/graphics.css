@@ -1,0 +1,21 @@
+/* Graphic language utilities. Decoration lives in banners, dividers and social only. */
+/* Bead-string divider: repeating purple / green / gold beads on a thread. */
+.dftb-beads{height:10px;background:radial-gradient(circle at 4px 40%,rgba(255,255,255,.55) 0 1.2px,transparent 2px) 0 0/10px 100% repeat-x,radial-gradient(circle at 5px 50%,var(--purple-500) 0 4.6000000000000005px,transparent 5px) 0 0/30px 100% repeat-x,radial-gradient(circle at 15px 50%,var(--green-500) 0 4.6000000000000005px,transparent 5px) 0 0/30px 100% repeat-x,radial-gradient(circle at 25px 50%,var(--gold-400) 0 4.6000000000000005px,transparent 5px) 0 0/30px 100% repeat-x}
+.dftb-beads--lg{height:16px;background:radial-gradient(circle at 6.4px 40%,rgba(255,255,255,.55) 0 1.92px,transparent 3.2px) 0 0/16px 100% repeat-x,radial-gradient(circle at 8px 50%,var(--purple-500) 0 7.36px,transparent 8px) 0 0/48px 100% repeat-x,radial-gradient(circle at 24px 50%,var(--green-500) 0 7.36px,transparent 8px) 0 0/48px 100% repeat-x,radial-gradient(circle at 40px 50%,var(--gold-400) 0 7.36px,transparent 8px) 0 0/48px 100% repeat-x}
+.dftb-beads--sm{height:6px;background:radial-gradient(circle at 2.4000000000000004px 40%,rgba(255,255,255,.55) 0 0.72px,transparent 1.2000000000000002px) 0 0/6px 100% repeat-x,radial-gradient(circle at 3px 50%,var(--purple-500) 0 2.7600000000000002px,transparent 3px) 0 0/18px 100% repeat-x,radial-gradient(circle at 9px 50%,var(--green-500) 0 2.7600000000000002px,transparent 3px) 0 0/18px 100% repeat-x,radial-gradient(circle at 15px 50%,var(--gold-400) 0 2.7600000000000002px,transparent 3px) 0 0/18px 100% repeat-x}
+/* Confetti: tiled dots and dashes. Only on brand-colored grounds behind display type, never behind body copy. */
+.dftb-confetti{background-image:
+radial-gradient(circle,var(--gold-400) 0 3px,transparent 3.5px),
+radial-gradient(circle,var(--green-400) 0 2.5px,transparent 3px),
+radial-gradient(circle,var(--purple-200) 0 2px,transparent 2.5px),
+radial-gradient(ellipse 7px 2.5px,var(--gold-400) 0 98%,transparent 100%),
+radial-gradient(ellipse 2.5px 7px,var(--green-400) 0 98%,transparent 100%);
+background-size:120px 120px,90px 90px,70px 70px,140px 140px,110px 110px;
+background-position:10px 20px,60px 50px,30px 75px,90px 10px,15px 85px}
+/* Purple duotone for hero photos: luminosity of the photo over brand purple. */
+.dftb-duotone{position:relative;background:var(--purple-700);overflow:hidden;isolation:isolate}
+.dftb-duotone>img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15) brightness(1.05);mix-blend-mode:luminosity}
+.dftb-duotone::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,8,80,0) 30%,rgba(42,8,80,.85) 100%);pointer-events:none}
+/* Keyline frame echoing the badge's green border. */
+.dftb-keyline{outline:var(--keyline-w) solid var(--green-500);outline-offset:-10px}
+.dftb-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

@@ -1,0 +1,24 @@
+:root{
+--font-display:'Oswald','League Gothic','Arial Narrow',sans-serif;
+--font-body:'Source Sans 3','Source Sans Pro','Segoe UI',system-ui,sans-serif;
+--font-accent:'Alfa Slab One','Rockwell',Georgia,serif;
+
+--fw-regular:400;/* @kind other */--fw-semibold:600;/* @kind other */--fw-bold:700;/* @kind other */
+
+/* Type scale. Fluid between 375px (mobile value) and 1280px (desktop value). */
+--fs-display-xl:clamp(3.5rem,2.05rem + 6.19vw,6rem);/* @kind other */   /* 56 → 96 */
+--fs-display-l:clamp(2.75rem,1.94rem + 3.45vw,4.5rem);/* @kind other */ /* 44 → 72 */
+--fs-h1:clamp(2.25rem,1.73rem + 2.21vw,3.5rem);/* @kind other */        /* 36 → 56 */
+--fs-h2:clamp(1.75rem,1.44rem + 1.33vw,2.5rem);/* @kind other */        /* 28 → 40 */
+--fs-h3:clamp(1.375rem,1.22rem + 0.66vw,1.75rem);/* @kind other */      /* 22 → 28 */
+--fs-eyebrow:clamp(0.875rem,0.82rem + 0.22vw,1rem);/* @kind other */    /* 14 → 16 */
+--fs-body-l:clamp(1.125rem,1.07rem + 0.22vw,1.25rem);/* @kind other */  /* 18 → 20 */
+--fs-body:clamp(1rem,0.95rem + 0.22vw,1.125rem);/* @kind other */       /* 16 → 18 */
+--fs-body-s:clamp(0.875rem,0.85rem + 0.11vw,0.9375rem);/* @kind other *//* 14 → 15 */
+--fs-caption:0.8125rem;/* @kind other */                                /* 13 */
+--fs-accent:clamp(1.5rem,1.29rem + 0.88vw,2rem);/* @kind other */       /* 24 → 32 */
+--fs-stat:clamp(3rem,2.48rem + 2.21vw,4.5rem);/* @kind other */         /* 48 → 72 */
+
+--lh-display:0.95;/* @kind other */--lh-heading:1.08;/* @kind other */--lh-h3:1.15;/* @kind other */--lh-tight:1.2;/* @kind other */--lh-body:1.6;/* @kind other */--lh-body-l:1.55;/* @kind other */--lh-small:1.45;/* @kind other */
+--ls-display:0.005em;/* @kind other */--ls-eyebrow:0.1em;/* @kind other */--ls-button:0.06em;/* @kind other */
+}

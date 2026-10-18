@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/about-us/", "destination": "/about/", "permanent": true },
+    { "source": "/about-us-2/", "destination": "/about/", "permanent": true },
+    { "source": "/race-route/", "destination": "/the-race/", "permanent": true },
+    { "source": "/become-a-sponsor/", "destination": "/get-involved/sponsor/", "permanent": true },
+    { "source": "/vendor-information/", "destination": "/get-involved/#vendors", "permanent": true },
+    { "source": "/jointheparty/", "destination": "/get-involved/", "permanent": true },
+    { "source": "/sponsor/", "destination": "/get-involved/sponsor/", "permanent": true }
+  ],
+  "headers": [
+    { "source": "/assets/js/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
+    { "source": "/assets/site-(.*).css", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
+    { "source": "/assets/(photos|sponsors|logo|og)/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] },
+    { "source": "/llms(.*).txt", "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }] },
+    { "source": "/(.*)", "headers": [
+      { "key": "X-Content-Type-Options", "value": "nosniff" },
+      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+      { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+    ] }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "dashforthebeads",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "images": "node scripts/optimize-images.mjs",
+    "build": "node scripts/build.mjs",
+    "build:review": "REVIEW=1 node scripts/build.mjs",
+    "preview": "npx --yes serve@14.2.4 dist -l 4321"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.24.2",
+    "sharp": "0.33.5"
+  }
+}
