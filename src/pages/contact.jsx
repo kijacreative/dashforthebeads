@@ -1,5 +1,5 @@
 import React from 'react';
-import { DS, D, Layout, Section, H2, Lead, Grid, Stack, Card, Ph, InterestForm, F, deliver } from '../shared.jsx';
+import { DS, D, Layout, Section, H2, Lead, Grid, Stack, Card, Ph, InterestForm, F, NewsletterSignup } from '../shared.jsx';
 
 export default function Contact() {
   const { PageBanner, Icon } = DS;
@@ -25,9 +25,7 @@ export default function Contact() {
                 ? <Line icon="instagram" t="Follow along">Race news and photos on {social.map(([k, l], i) => <React.Fragment key={k}>{i > 0 && ' and '}<a href={D.social[k]} rel="me noopener">{l}</a></React.Fragment>)}.</Line>
                 : <Ph>CONFIRM: social URLs (Instagram, Facebook) to show a Follow along line</Ph>}
             </Card>
-            <DS.EmailSignup tone="light" title="Stay connected" body="Sign up for our mailing list for race announcements, registration, and early pricing." buttonLabel="Sign up"
-              onSubmit={(email) => deliver('mailing-list', { email }).catch(() => {})} />
-            <Ph>CONFIRM: mailing list provider and list ID</Ph>
+            <NewsletterSignup form="mailing-list" tone="light" title="Stay connected" body="Sign up for our mailing list for race announcements, registration, and early pricing." buttonLabel="Sign up" />
           </Stack>
         </Grid>
       </Section>

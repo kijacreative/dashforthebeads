@@ -14,12 +14,14 @@ const D = {
   founded: 2009,
   email: 'info@dashforthebeads.org',
   runsignup: 'https://runsignup.com/Race/TX/Dallas/DashfortheBeads',
-  // Optional: a form backend URL (Formspree, Basin, a WordPress REST route, etc). When empty, forms open a prefilled email.
+  // Google Apps Script web app URL (ends in /exec) that saves every form to the forms Google Sheet.
+  // Setup: google-apps-script/README.md. When empty, forms open a prefilled email to the committee instead.
   formEndpoint: '',
   // Social profiles: '' hides the icon and drops it from schema sameAs.
   social: { instagram: '', facebook: '', youtube: '' },
   youtubeId: '',
-  gtmId: '', // Google Tag Manager container (GA4 + Meta pixel). Loads only after cookie consent.
+  gaId: 'G-WRRWV4NPPZ', // Google Analytics 4 (gtag.js). Consent Mode: no analytics cookies until the visitor accepts.
+  gtmId: '', // Optional Google Tag Manager container (e.g. for a Meta pixel). Loads only after cookie consent.
   ein: '',
   venue: {
     name: 'Davis Street at the Kessler Theater',

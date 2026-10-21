@@ -17,6 +17,7 @@ Deploy: `vercel.json` builds `dist/` with trailing-slash URLs and the 301 redire
 ## Where to edit
 
 - `src/data.js`: race date, registration toggle, sponsors, tiers, committee, photos, social links, GTM ID, form endpoint.
+- `google-apps-script/Code.gs`: the Google Sheet receiver for all website forms.
 - `src/content.js`: FAQ answers and the "at a glance" facts. These same strings feed the FAQPage schema and `llms.txt`.
 - `src/routes.js`: page titles and meta descriptions.
 - `src/pages/*.jsx`: page layouts. `src/shared.jsx`: header, footer, forms. `src/site.css`: site styles. Design tokens are in `src/ds/tokens/`.
@@ -27,7 +28,7 @@ Deploy: `vercel.json` builds `dist/` with trailing-slash URLs and the 301 redire
 | --- | --- | --- |
 | The 2027 date | `dateConfirmed: true`, `raceDateISO`, `raceDateLong` | Hero, schedule, quick facts, and SportsEvent schema (rich results) |
 | Registration open | `registrationOpen: true` | Hero CTA switches from "Get race updates" to Register |
-| A form service | `formEndpoint` | Forms POST JSON there. Until then they open a prefilled email to info@ |
+| The Google Sheet web app URL | `formEndpoint` | Newsletter, contact, and all interest forms save to the forms Google Sheet ([setup](google-apps-script/README.md)). Until then they open a prefilled email to info@ |
 | GTM container | `gtmId` | GA4 and Meta load only after cookie consent |
 | Social URLs | `social` | Footer icons and `sameAs` in Organization schema |
 | EIN | `ein` | `taxID` in Organization schema |

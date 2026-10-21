@@ -66,6 +66,19 @@ img{height:auto}
 .crumbs [aria-current]{color:var(--text-muted)}
 
 /* Forms */
+.trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.signup{border-radius:var(--radius-md);padding:clamp(20px,4vw,36px);display:flex;flex-direction:column;gap:12px;font-family:var(--font-body)}
+.signup--gold{background:var(--gold-400);color:var(--ink-900)}
+.signup--purple{background:var(--purple-500);color:#fff}
+.signup--light{background:var(--bg-brand-soft);color:var(--text-primary)}
+.signup__h{margin:0;font-family:var(--font-display);font-weight:700;font-size:var(--fs-h2);line-height:1.05;text-transform:uppercase}
+.signup__b{margin:0;font-size:var(--fs-body);line-height:1.5;max-width:520px}
+.signup__f{display:flex;flex-wrap:wrap;gap:8px}
+.signup__l{flex:1 1 220px}
+.signup__l input{width:100%;min-height:48px;padding:0 14px;font-size:17px;font-family:var(--font-body);border:2px solid var(--ink-900);border-radius:var(--radius-sm);background:#fff;color:var(--ink-900)}
+.signup__l input:focus-visible{outline:3px solid var(--purple-500);outline-offset:2px}
+.signup__done{margin:0;display:flex;gap:10px;align-items:center;font-size:18px;font-weight:600}
+.signup__err{font-size:15px;font-weight:700}
 .iform{display:flex;flex-direction:column;gap:18px}
 .form-done{background:var(--status-success-bg);color:var(--status-success-fg);border-radius:var(--radius-md);padding:24px;display:flex;gap:12px;align-items:flex-start;font-size:18px;font-weight:600}
 .form-err{margin:0;color:var(--text-danger);font-weight:600}

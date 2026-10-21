@@ -45,26 +45,75 @@ export const RegisterButton = ({ loc, size = 'lg', children = 'Register' }) => <
 /* Until registration opens, the primary CTA is email capture. */
 export const PrimaryCTA = ({ loc, size = 'lg' }) => (D.registrationOpen ? <RegisterButton loc={loc} size={size} /> : <DS.Button variant="register" size={size} icon="mail" href="#updates">Get race updates</DS.Button>);
 
-/* Form delivery: POST to D.formEndpoint when configured, otherwise open a prefilled email to the committee. */
-export async function deliver(form, data) {
+/* Analytics events: GA4 via gtag when the Google tag is on the page, plus dataLayer for GTM. */
+export function track(event, params = {}) {
+  if (typeof window.gtag === 'function') window.gtag('event', event, params);
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: 'form_submit', form });
+  if (window.__gtm) window.dataLayer.push({ event, ...params });
+}
+
+/* Form delivery. With D.formEndpoint set (the Google Apps Script web app in google-apps-script/), each submission
+   becomes a row in the forms Google Sheet. Without it, the visitor's email app opens prefilled to the committee.
+   `data` is keyed by the label people see, which becomes the column header. `trap` is the honeypot value. */
+export async function deliver(form, data, trap = '') {
   if (D.formEndpoint) {
-    const r = await fetch(D.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ form, ...data }) });
-    if (!r.ok) throw new Error('Form service returned ' + r.status);
+    // No custom headers: a text/plain POST skips the CORS preflight that Apps Script can't answer.
+    const r = await fetch(D.formEndpoint, { method: 'POST', body: JSON.stringify({ form, page: window.location.pathname, website: trap, fields: data }) });
+    const res = await r.json().catch(() => ({}));
+    if (!r.ok || !res.ok) throw new Error(res.error || 'Form service returned ' + r.status);
+    track('form_submit', { form_name: form, method: 'sheet' });
     return 'sent';
   }
+  track('form_submit', { form_name: form, method: 'email' });
   const body = Object.entries(data).filter(([, v]) => v).map(([k, v]) => k + ': ' + v).join('\n');
   window.location.href = 'mailto:' + D.email + '?subject=' + encodeURIComponent('Website: ' + form) + '&body=' + encodeURIComponent(body);
   return 'mailto';
 }
 
+/* Honeypot: hidden from people and screen readers, filled in by naive spam bots. */
+const Trap = () => (
+  <div aria-hidden="true" className="trap"><label>Website<input type="text" name="website" tabIndex={-1} autoComplete="off" /></label></div>
+);
+
+/* Newsletter sign-up in the design system's EmailSignup style, but it only says "you're on the list" once the sheet confirms. */
+export function NewsletterSignup({ form, tone = 'gold', title, body, buttonLabel = 'Sign me up', successMessage = "Thanks! You're on the list. See you on Davis Street." }) {
+  const [email, setEmail] = React.useState('');
+  const [state, setState] = React.useState('idle');
+  const [err, setErr] = React.useState('');
+  const submit = async (e) => {
+    e.preventDefault();
+    const v = email.trim();
+    if (!/^\S+@\S+\.\S+$/.test(v)) { setErr('Enter an email like name@example.com'); return; }
+    setErr(''); setState('sending');
+    try {
+      const r = await deliver(form, { Email: v }, new FormData(e.target).get('website') || '');
+      setState(r === 'mailto' ? 'mailto' : 'done');
+    } catch { setState('idle'); setErr("That didn't go through. Please try again, or email " + D.email + '.'); }
+  };
+  return (
+    <section className={'signup signup--' + tone}>
+      <h3 className="signup__h">{title}</h3>
+      {state === 'done' ? <p role="status" className="signup__done"><DS.Icon name="circle-check" size={24} />{successMessage}</p>
+        : state === 'mailto' ? <p role="status" className="signup__done"><DS.Icon name="mail" size={24} />Your email app should open. Hit send and we'll add you to the list.</p>
+        : <>
+          <p className="signup__b">{body}</p>
+          <form onSubmit={submit} noValidate className="signup__f">
+            <label className="signup__l"><span className="sr-only">Email address</span>
+              <input type="email" name="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" aria-invalid={!!err} aria-describedby={err ? form + '-err' : undefined} />
+            </label>
+            <Trap />
+            <DS.Button type="submit" variant={tone === 'purple' ? 'register' : 'primary'}>{state === 'sending' ? 'Sending' : buttonLabel}</DS.Button>
+          </form>
+          {err && <span role="alert" id={form + '-err'} className="signup__err">{err}</span>}
+        </>}
+    </section>
+  );
+}
+
 export const Updates = ({ tone = 'gold' }) => (
   <div id="updates" className="anchor">
-    <DS.EmailSignup tone={tone} title="Get race updates" body="Be first to hear the 2027 date, when registration opens, and early pricing. A few emails a year." buttonLabel="Sign me up"
-      successMessage="Thanks! You're on the list. See you on Davis Street."
-      onSubmit={(email) => deliver('race-updates', { email }).catch(() => {})} />
-    <p style={{ margin: '8px 0 0', fontSize: 'var(--fs-caption)' }}><Ph>CONFIRM: mailing list provider (Mailchimp, Constant Contact, etc.) and list ID</Ph></p>
+    <NewsletterSignup form="race-updates" tone={tone} title="Get race updates" body="Be first to hear the 2027 date, when registration opens, and early pricing. A few emails a year." />
+    <p style={{ margin: '8px 0 0', fontSize: 'var(--fs-caption)' }}><Ph>{D.formEndpoint ? 'Sign-ups go to the Newsletter tab of the forms Google Sheet' : 'CONFIRM: set formEndpoint in src/data.js (Google Apps Script URL) so sign-ups reach the Google Sheet'}</Ph></p>
   </div>
 );
 
@@ -78,13 +127,15 @@ export function InterestForm({ name, fields, submitLabel = 'Send', success = "Th
   const submit = async (e) => {
     e.preventDefault(); const f = new FormData(e.target); const x = {}; const data = {};
     fields.forEach((fd) => {
-      const v = (f.get(fd.name) || '').toString().trim(); data[fd.label] = v;
+      const v = (f.get(fd.name) || '').toString().trim();
+      const opt = fd.options && fd.options.find((o) => typeof o === 'object' && o.value === v);
+      data[fd.label] = opt ? opt.label : v;
       if (fd.required && !v) x[fd.name] = 'Required';
       if (fd.type === 'email' && v && !/^\S+@\S+\.\S+$/.test(v)) x[fd.name] = 'Enter an email like name@example.com';
     });
     setErr(x); if (Object.keys(x).length) return;
     setState('sending');
-    try { setState(await deliver(name, data)); } catch { setState('error'); }
+    try { setState(await deliver(name, data, f.get('website') || '')); } catch { setState('error'); }
   };
   if (state === 'sent') return <div role="status" className="form-done"><Icon name="circle-check" size={26} />{success}</div>;
   if (state === 'mailto') return <div role="status" className="form-done"><Icon name="mail" size={26} /><span>Your email app should open with your details filled in. Hit send and it goes straight to the committee. If nothing opened, email us at <a href={'mailto:' + D.email}>{D.email}</a>.</span></div>;
@@ -100,8 +151,9 @@ export function InterestForm({ name, fields, submitLabel = 'Send', success = "Th
           return <div key={fd.name} style={wide}>{el}</div>;
         })}
       </Grid>
+      <Trap />
       {state === 'error' && <p role="alert" className="form-err">Something went wrong sending that. Please email <a href={'mailto:' + D.email}>{D.email}</a>.</p>}
-      <div><Button type="submit" variant="primary" size="lg">{state === 'sending' ? 'Sending' : submitLabel}</Button></div>
+      <div><Button type="submit" variant="primary" size="lg" disabled={state === 'sending'}>{state === 'sending' ? 'Sending' : submitLabel}</Button></div>
       <p className="fine">Goes straight to the committee at {D.email}.</p>
     </form>
   );
@@ -209,7 +261,7 @@ export function Layout({ active, children }) {
   const onClick = (e) => {
     const a = e.target.closest && e.target.closest('a'); if (!a) return;
     const href = a.getAttribute('href') || '';
-    if (href.includes('runsignup.com')) { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'runsignup_click', link_url: href }); }
+    if (href.includes('runsignup.com')) track('runsignup_click', { link_url: href, link_location: new URL(href).searchParams.get('utm_content') || '' });
   };
   return (
     <div onClickCapture={onClick}>

@@ -55,7 +55,7 @@ function page(route, body) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(route.title)}</title>
+${D.gaId && !REVIEW ? gtag(D.gaId) : ''}<title>${esc(route.title)}</title>
 <meta name="description" content="${esc(route.description)}">
 <meta name="robots" content="${REVIEW ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1'}">
 <link rel="canonical" href="${url}">
@@ -90,6 +90,22 @@ ${REVIEW ? '<script>window.__DFTB_REVIEW__=true</script>\n' : ''}${D.gtmId ? gtm
 <script type="module" src="${appJs}"></script>
 </body>
 </html>
+`;
+}
+
+// Google tag (GA4) with Consent Mode v2: storage is denied by default and granted when the visitor
+// clicks OK on the cookie notice (or already did on an earlier visit). Declining keeps it denied.
+function gtag(id) {
+  return `<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=${id}"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+var c;try{c=localStorage.getItem('dftb-cookie')}catch(e){}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:c==='accepted'?'granted':'denied',wait_for_update:500});
+addEventListener('dftb-consent',function(e){gtag('consent','update',{analytics_storage:e.detail==='accepted'?'granted':'denied'})});
+gtag('js',new Date());
+gtag('config','${id}');
+</script>
 `;
 }
 
