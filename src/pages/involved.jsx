@@ -1,5 +1,5 @@
 import React from 'react';
-import { DS, D, P, Layout, Section, Eyebrow, H2, H3, Lead, Body, Grid, Stack, Card, List, Ph, PhotoSlot, Img, InterestForm, F } from '../shared.jsx';
+import { DS, D, P, Layout, Section, Eyebrow, H2, H3, Lead, Body, Grid, Stack, Card, List, Ph, PhotoSlot, Img, InterestForm, F, PaymentNote } from '../shared.jsx';
 
 export default function Involved() {
   const { PageBanner, Button, Icon, BeadDivider } = DS;
@@ -42,7 +42,7 @@ export default function Involved() {
             <H3>Become a Friend</H3>
             <InterestForm name="friends" submitLabel="Become a Friend" success="Thank you! We'll email you next steps and your race entry codes."
               fields={[F.first, F.last, F.email, F.phone, { name: 'listing', label: 'How should we list you?', hint: 'For example: The Garcia Family', wide: true }]} />
-            <Ph>CONFIRM: how Friends pay (RunSignup donation, online checkout, or check)</Ph>
+            <PaymentNote what="Friends of the Dash memberships ($250 a year)" />
           </Stack>
         </Grid>
       </Section>

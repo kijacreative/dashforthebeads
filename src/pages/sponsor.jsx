@@ -1,5 +1,5 @@
 import React from 'react';
-import { DS, D, P, Layout, Section, Eyebrow, H2, H3, Lead, Body, Grid, Stack, Row, Card, Ph, InterestForm, F, Faq, tierCardProps } from '../shared.jsx';
+import { DS, D, P, Layout, Section, Eyebrow, H2, H3, Lead, Body, Grid, Stack, Row, Card, Ph, InterestForm, F, Faq, tierCardProps, PaymentNote } from '../shared.jsx';
 import { SPONSOR_FAQ } from '../content.js';
 
 export default function Sponsor() {
@@ -9,8 +9,8 @@ export default function Sponsor() {
   const chip = (k, l) => <button key={k} className="filter" onClick={() => setFilter(k)} aria-pressed={filter === k}>{l}</button>;
   const why = [
     { icon: 'sprint', t: 'Audience', d: 'About 1,000 runners and their families, mostly from Oak Cliff and greater Dallas. Neighbors who shop, eat, and bank close to home.' },
-    { icon: 'party-flags', t: 'Reach', d: <>Thousands more line Davis Street for the Go Oak Cliff Mardi Gras Parade right after the race. Your logo also rides on bibs, shirts, cups, bags, and our social posts. <Ph>CONFIRM: social follower and email list counts</Ph></> },
-    { icon: 'heart-plus', t: 'Impact', d: <>Net proceeds fund grants for Oak Cliff schools and youth non-profits in fitness, healthy eating, and the arts. $325,000 awarded to 34 organizations since 2014. <Ph>{D.impactConfirm}</Ph></> }
+    { icon: 'party-flags', t: 'Reach', d: <>Thousands more line Davis Street for the Go Oak Cliff Mardi Gras Parade right after the race. Your logo also rides on bibs, shirts, cups, bags, our social posts, and emails to our {D.emailSubscribers} subscribers. <Ph>CONFIRM: social follower counts</Ph></> },
+    { icon: 'heart-plus', t: 'Impact', d: <>Net proceeds fund grants for Oak Cliff schools and youth non-profits in fitness, healthy eating, and the arts. More than $450,000 awarded since 2010.</> }
   ];
   const opts = D.tiers.filter((t) => t.status !== 'claimed').map((t) => ({ value: t.slug, label: t.name + ' (' + t.price + ')' }));
   return (
@@ -44,7 +44,7 @@ export default function Sponsor() {
 
       <Section bg="var(--bg-sunken)" id="levels" label="Sponsorship levels">
         <div className="levels-head">
-          <Stack gap={8}><H2>Sponsorship levels</H2><Ph>CONFIRM: 2027 prices, benefits, and which levels are claimed (2026 shown)</Ph></Stack>
+          <Stack gap={8}><H2>Sponsorship levels</H2><Ph>CONFIRM: prices for Presenting, Community Hero, and Race Start (shown as Claimed)</Ph></Stack>
           <Row gap={8}>{chip('all', 'All')}{chip('open', 'Available')}{chip('claimed', 'Claimed')}</Row>
         </div>
         <Grid min={270} gap={20}>{tiers.map((t) => <SponsorTierCard key={t.slug} {...tierCardProps(t)} />)}</Grid>
@@ -55,6 +55,7 @@ export default function Sponsor() {
         <Lead>Tell us a little about your business and we'll send the full deck with placements, reach, and pricing. Prefer to talk? Email <a href={'mailto:' + D.email}>{D.email}</a>.</Lead>
         <InterestForm name="sponsor-deck" submitLabel="Send me the deck" success="Thanks. The sponsor deck is on its way to your inbox."
           fields={[F.first, F.last, F.company, F.email, F.phone, { name: 'tier', label: 'Level you are interested in', options: opts, placeholder: 'Not sure yet', fromQuery: 'tier' }, F.notes]} />
+        <PaymentNote what="Sponsorships" />
         <Ph>CONFIRM: sponsor deck PDF to attach to the auto-reply</Ph>
       </Section>
 

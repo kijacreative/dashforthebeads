@@ -65,6 +65,11 @@ img{height:auto}
 .crumbs li+li::before{content:"/";margin-right:6px;color:var(--text-muted)}
 .crumbs [aria-current]{color:var(--text-muted)}
 
+/* Payment note */
+.paynote{border:1px solid var(--border-default);background:var(--bg-surface);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.paynote__h{display:flex;gap:8px;align-items:center;font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:.04em;text-transform:uppercase}
+.paynote p{margin:0;color:var(--text-secondary)}
+
 /* Forms */
 .trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 .signup{border-radius:var(--radius-md);padding:clamp(20px,4vw,36px);display:flex;flex-direction:column;gap:12px;font-family:var(--font-body)}

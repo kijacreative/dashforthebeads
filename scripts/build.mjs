@@ -169,7 +169,7 @@ function llms({ ROUTES, D, SITE_URL, RACE_FAQ, GRANTS_FAQ, SPONSOR_FAQ, QUICK_FA
 
 Key facts:
 ${QUICK_FACTS.map((f) => `- ${f.k}: ${f.v}`).join('\n')}
-- Impact: $325,000 in grants to 34 organizations since 2014; about 1,000 runners a year
+- Impact: more than $450,000 in grants since 2010; about 1,000 runners a year
 - Registration: ${D.runsignup}
 - Contact: ${D.email}
 

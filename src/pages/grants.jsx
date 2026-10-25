@@ -8,7 +8,7 @@ export default function Grants() {
   const steps = [
     ['Check eligibility', 'Make sure your school group or non-profit meets the requirements below.'],
     ['Download the proposal form', 'Fill it out and write a short narrative and budget for your program.'],
-    ['Submit by the deadline', 'Email your complete proposal to the grants committee.'],
+    ['Submit by July 31', 'Applications open April 1. Email your complete proposal to the grants committee by July 31.'],
     ['Review and award', 'The committee scores each proposal and the board sets the number and size of grants.'],
     ['Report back', 'Awardees confirm how the funds were spent and complete grant reporting.']
   ];
@@ -20,7 +20,7 @@ export default function Grants() {
         <Lead>Each year, Dash for the Beads awards grants to Oak Cliff schools and youth non-profits for programs in physical fitness, healthy eating, and the arts. Grants are paid for by the net proceeds of the race.</Lead>
         <Grid min={200} gap={12}>
           <Fact t="Grant amount">Set yearly by the board <Ph>CONFIRM: 2027 max award (2016 was $1,000)</Ph></Fact>
-          <Fact t="Deadline">Announced when the cycle opens <Ph>CONFIRM: 2027 application deadline</Ph></Fact>
+          <Fact t="Application window">April 1 to July 31</Fact>
           <Fact t="Submit to"><a href={'mailto:' + D.email + '?subject=Grant%20proposal'}>{D.email}</a> <Ph>CONFIRM: grants application email</Ph></Fact>
         </Grid>
         <Pending><Row><Button icon="arrow-right" href="#">Download the proposal form</Button><Ph>CONFIRM: proposal form file (PDF or DOCX)</Ph></Row></Pending>
@@ -62,8 +62,8 @@ export default function Grants() {
 
       <Section bg="var(--bg-sunken)" narrow label="Past recipients">
         <H2>Past recipients</H2>
-        <Body>Since 2014, Dash for the Beads has funded 34 Oak Cliff schools and organizations.</Body>
-        <Ph>CONFIRM: list of past grant recipients by year</Ph>
+        <Body>Since 2010, Dash for the Beads has awarded more than $450,000 to Oak Cliff schools and youth organizations.</Body>
+        <Ph>CONFIRM: 2025 and 2026 grant recipients to list here</Ph>
       </Section>
     </Layout>
   );

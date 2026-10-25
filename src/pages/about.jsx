@@ -14,9 +14,9 @@ export default function About() {
           <Stack gap={18}>
             <H2>A neighborhood party with a purpose</H2>
             <Lead>Dash for the Beads is a 501(c)(3) non-profit organization that donates its proceeds to local schools to help promote healthy eating and physical activity for our grade school children. Area schools are eligible to apply for grants that encourage kids to stay in motion and to learn about and practice habits that lead to a healthy lifestyle.</Lead>
-            <Body>Dash for the Beads is an annual 5K and 1-mile walk that coincides with Mardi Gras, so come out and <em>laissez les bons temps rouler!</em> (To any Mardi Gras rookies, that is Cajun for "Let the good times roll.") <Ph>CONFIRM: 2026 About page says "10K and 5K runs along with a 1 mile walk"; Race page says 5K and 1 mile only</Ph></Body>
+            <Body>Dash for the Beads is an annual 5K and 1-mile walk that coincides with Mardi Gras, so come out and <em>laissez les bons temps rouler!</em> (To any Mardi Gras rookies, that is Cajun for "Let the good times roll.")</Body>
             <Body>Each year we award an enviable trophy to the winner of the chip-timed 5K. Come join an event that has become a neighborhood tradition, benefiting neighborhood schools.</Body>
-            <Body>The Dash was founded in {D.founded} by "Cliff Dwellers" Chad West and David Sassano as a way to raise money for Oak Cliff organizations. <Ph>CONFIRM: founded 2009, first race 2010 (2027 is the 18th annual)</Ph> Monetary donations from those not able to participate are welcome. <Ph>CONFIRM: donation link</Ph></Body>
+            <Body>The Dash was founded in {D.founded} by "Cliff Dwellers" Chad West and David Sassano as a way to raise money for Oak Cliff organizations. <Ph>CONFIRM: founded 2009, first race 2010 (2027 is the 18th annual)</Ph> Monetary donations from those not able to participate are welcome{D.payment.zeffy ? <>: <a href={D.payment.zeffy} rel="noopener">donate online</a>.</> : <>. <a href={P.contact + '?type=other'}>Get in touch</a> and we'll send the details.</>} <Ph>CONFIRM: Zeffy donation link (set payment.zeffy in src/data.js)</Ph></Body>
             <Row><Button href={P.involved}>Get involved</Button><Button variant="outline" href={P.grants}>About our grants</Button></Row>
           </Stack>
           <Img p={ph.volunteers} ratio="3/2" />
@@ -28,7 +28,7 @@ export default function About() {
         <p className="mission">Dash for the Beads activities provide funds for Dallas-area schools and non-profits to promote physical fitness, healthy eating, and arts programming.</p>
         <H3>How we accomplish our mission</H3>
         <List ordered items={[
-          <>Raising funds annually for Oak Cliff schools and non-profits that serve children through the Dash for the Beads 5K and fun run, as well as Last Bag Standing and Friends of the Dash. <Ph>CONFIRM: original lists "5K, 10K, and fun run"</Ph></>,
+          <>Raising funds annually for Oak Cliff schools and non-profits that serve children through the Dash for the Beads 5K and fun run, as well as Last Bag Standing and Friends of the Dash.</>,
           'Requesting grant proposals annually from Oak Cliff schools and non-profits that offer physical fitness, healthy eating, and arts programming for children.',
           'Carefully reviewing and scoring grant applications to ensure Dash for the Beads is a good steward of the funds it raises.',
           'Awarding grant funds to Oak Cliff schools and non-profits based on the Grant Review Process.',
@@ -43,10 +43,9 @@ export default function About() {
       </Section>
 
       <Section label="Committee">
-        <div><Eyebrow>2026 committee</Eyebrow><H2>The people behind the Dash</H2></div>
-        <Ph>CONFIRM: 2027 committee roster. Showing 2026 until confirmed.</Ph>
+        <div><Eyebrow>{D.committeeYear} committee</Eyebrow><H2>The people behind the Dash</H2></div>
         <Grid min={220} gap={16}>{D.committee.map((m) => (
-          <Card key={m.role} className="person">
+          <Card key={m.name} className="person">
             <div aria-hidden="true" className="person__av">{initials(m.name)}</div>
             <div><div className="person__n">{m.name}</div><div className="person__r">{m.role}</div></div>
           </Card>))}</Grid>

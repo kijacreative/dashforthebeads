@@ -3,16 +3,19 @@ export const SITE_URL = 'https://dashforthebeads.org';
 
 const D = {
   registrationOpen: false,
-  // Flip dateConfirmed to true once the 2027 date is set: the hero, schedule, and SportsEvent schema all switch over.
-  dateConfirmed: false,
-  raceDate: 'Date announced soon',
-  raceDateLong: 'Sunday, February 7, 2027', // projected: Sunday before Mardi Gras, with the Go Oak Cliff parade
+  // dateConfirmed drives the hero, schedule, quick facts, and SportsEvent schema. Confirmed by the committee Oct 2026.
+  dateConfirmed: true,
+  raceDate: 'Sunday, February 7, 2027',
+  raceDateLong: 'Sunday, February 7, 2027', // Sunday before Mardi Gras, back to back with the Go Oak Cliff parade
   raceDateISO: '2027-02-07',
-  raceDatePlaceholder: 'CONFIRM: 2027 race date (Sunday before Mardi Gras, with the Go Oak Cliff parade)',
+  raceDatePlaceholder: 'CONFIRM: 2027 start times (2026 schedule shown)',
   edition: 18,
   year: 2026, // footer copyright
   founded: 2009,
   email: 'info@dashforthebeads.org',
+  emailSubscribers: '3,500+', // RunSignup mailing list size, used in sponsor reach copy
+  // How sponsors and Friends of the Dash pay. Paste the Zeffy (or PayPal) payment page URL to show a "Pay online" button.
+  payment: { methods: 'PayPal, Zelle, or check', zeffy: '', paypal: '' },
   runsignup: 'https://runsignup.com/Race/TX/Dallas/DashfortheBeads',
   // Google Apps Script web app URL (ends in /exec) that saves every form to the forms Google Sheet.
   // Setup: google-apps-script/README.md. When empty, forms open a prefilled email to the committee instead.
@@ -24,12 +27,11 @@ const D = {
   gtmId: '', // Optional Google Tag Manager container (e.g. for a Meta pixel). Loads only after cookie consent.
   ein: '',
   venue: {
-    name: 'Davis Street at the Kessler Theater',
-    street: 'W Davis St at N Clinton Ave',
+    name: 'W Davis St and N Clinton Ave',
+    street: 'W Davis St and N Clinton Ave',
     locality: 'Dallas', region: 'TX', postal: '75208', country: 'US',
     neighborhood: 'Oak Cliff',
-    // Approximate Kessler Theater location (1230 W Davis St). CONFIRM before relying on it for maps.
-    geo: { lat: 32.7493, lng: -96.8424 }
+    maps: 'https://maps.google.com/?q=W+Davis+St+and+N+Clinton+Ave,+Dallas,+TX+75208'
   },
   schedule: [
     { time: '9:30am', title: 'Registration, packet pickup, bar open' },
@@ -54,12 +56,12 @@ const D = {
     gold: { src: '/assets/photos/gold-shirts-legacy.webp', w: 1024, h: 725, alt: 'Friends in gold Dash shirts, paper crowns, and jester wands cheering along the course' }
   },
   impact: [
-    { prefix: '$', value: 325000, label: 'Donations awarded', note: 'Since 2014' },
+    { prefix: '$', value: 450000, suffix: '+', label: 'Donations awarded', note: 'Since 2010' },
     { value: 34, label: 'Organizations funded', note: 'Since 2014' },
     { prefix: '$', value: 27000, label: 'In free entries', note: 'To approx. 675 DISD kids over 3 years' },
     { value: 1000, suffix: '+', label: 'Runners', note: 'Approx. per year' }
   ],
-  impactConfirm: 'CONFIRM: $325K since 2014 or $450K since 2010',
+  impactConfirm: 'CONFIRM: organizations funded since 2010 (34 is the 2014+ count)',
   tiers: [
     { slug: 'presenting', name: 'Presenting Sponsor', price: '$TBD', status: 'claimed', claimedBy: 'Good Space', benefits: ['Event naming rights', 'Your logo on all Dash promotions and signage', 'Prominent signage facing parade', 'Private party area for parade', 'Private party area in tent/venue', 'Premier vendor spot in tent/venue', '25 race entries (5K or 1 mile)', 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'] },
     { slug: 'community-hero', name: 'Community Hero', price: '$TBD', status: 'claimed', claimedBy: 'Methodist Dallas & Methodist Health', benefits: ['Prominent signage facing parade', 'Premier vendor spot in tent/venue', 'Preferred bleacher seating for four', '15 race entries (5K or 1 mile)', 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'] },
@@ -70,7 +72,7 @@ const D = {
     { slug: 'beads', name: 'Beads Sponsor', price: '$5,000', benefits: ['Your logo on all Mardi Gras beads distributed', 'Vendor spot in festival', 'Preferred bleacher seating for two', '8 race entries (5K or 1 mile)', 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'] },
     { slug: 'packet-pickup', name: 'Packet Pickup Sponsor', price: '$2,500', benefits: ['We send our runners to your business to pick up their Dash packets', 'Vendor spot in festival', 'Preferred bleacher seating for two', '4 race entries (5K or 1 mile)', 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'] },
     { slug: 'king-of-the-hill', name: 'King of the Hill Sponsor', price: '$2,500', benefits: ['Your logo on special signage at the King of the Hill location and award', 'Vendor spot in festival', 'Preferred bleacher seating for two', '4 race entries (5K or 1 mile)', 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'] },
-    { slug: 'race-start', name: 'Race Start Sponsor', price: '$TBD', status: 'claimed', benefits: ['Your logo on signage at the start and end of the race', 'Vendor spot in festival', 'Preferred bleacher seating for two', '4 race entries (5K or 1 mile)', 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'] },
+    { slug: 'race-start', name: 'Race Start Sponsor', price: '$TBD', status: 'claimed', claimedBy: 'Jan Pruitt Family', benefits: ['Your logo on signage at the start and end of the race', 'Vendor spot in festival', 'Preferred bleacher seating for two', '4 race entries (5K or 1 mile)', 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'] },
     { slug: 'gold', name: 'Gold Sponsor', price: '$1,500', benefits: ['Preferred bleacher seating for two', '4 race entries (5K or 1 mile)', 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'] },
     { slug: 'silver', name: 'Silver Sponsor', price: '$1,000', benefits: ['Preferred bleacher seating for two', '2 race entries (5K or 1 mile)', 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'] },
     { slug: 'bronze', name: 'Bronze Sponsor', price: '$750', benefits: ['4 race entries (5K or 1 mile)', 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'] },
@@ -88,15 +90,16 @@ const D = {
     { name: 'Bronze Level', size: 'silver', sponsors: [{ name: 'TLM' }, { name: 'Rafael Anchía' }, { name: 'Gasper Law', logo: '/assets/sponsors/gasper-law.webp' }, { name: 'Bronze sponsor (s4)', placeholder: true }] },
     { name: 'Friend of the Dash', size: 'silver', sponsors: [{ name: 'QualiGraphics', logo: '/assets/sponsors/qualigraphics.webp' }] }
   ],
+  committeeYear: 2027,
   committee: [
     { role: 'Dash Chair', name: 'Angelica Dennet' },
     { role: 'Event Chair', name: 'Krystal Huerta' },
-    { role: 'Marketing', name: 'Vicky Gouge' },
     { role: 'Race Route / Festival Leader', name: 'Jacob Huerta' },
     { role: 'Community Liaison', name: 'Benny Guzman' },
     { role: 'Sponsorships', name: 'Claudia Huerta' },
-    { role: 'Emeritus Leaders', name: 'Becky and Chris Moffet' },
-    { role: 'Founder', name: 'Chad West' }
+    { role: 'Founder', name: 'Chad West' },
+    { role: 'Legacy Member', name: 'Vicky Gouge' },
+    { role: 'Legacy Members', name: 'Becky and Chris Moffet' }
   ]
 };
 

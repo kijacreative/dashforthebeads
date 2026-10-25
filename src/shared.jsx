@@ -112,10 +112,26 @@ export function NewsletterSignup({ form, tone = 'gold', title, body, buttonLabel
 
 export const Updates = ({ tone = 'gold' }) => (
   <div id="updates" className="anchor">
-    <NewsletterSignup form="race-updates" tone={tone} title="Get race updates" body="Be first to hear the 2027 date, when registration opens, and early pricing. A few emails a year." />
+    <NewsletterSignup form="race-updates" tone={tone} title="Get race updates" body="Be first to hear when registration opens, early pricing, and race-day news. A few emails a year." />
     <p style={{ margin: '8px 0 0', fontSize: 'var(--fs-caption)' }}><Ph>{D.formEndpoint ? 'Sign-ups go to the Newsletter tab of the forms Google Sheet' : 'CONFIRM: set formEndpoint in src/data.js (Google Apps Script URL) so sign-ups reach the Google Sheet'}</Ph></p>
   </div>
 );
+
+/* How sponsors and Friends pay. A "Pay online" button appears once D.payment.zeffy (or paypal) is set. */
+export const PaymentNote = ({ what }) => {
+  const { zeffy, paypal, methods } = D.payment;
+  return (
+    <div className="paynote">
+      <div className="paynote__h"><DS.Icon name="heart-plus" size={22} color="var(--purple-500)" />How to pay</div>
+      <p>{what} can be paid by {methods}.{zeffy || paypal ? ' Pay online now, or send the form and' : ' Send the form and'} we'll email you payment details.</p>
+      {(zeffy || paypal) && <Row gap={8}>
+        {zeffy && <DS.Button href={zeffy} iconRight="arrow-right">Pay online</DS.Button>}
+        {paypal && <DS.Button variant="outline" href={paypal}>Pay with PayPal</DS.Button>}
+      </Row>}
+      <Ph>CONFIRM: Zeffy payment link (set payment.zeffy in src/data.js to show a Pay online button)</Ph>
+    </div>
+  );
+};
 
 /* Generic interest form. Validates in the browser, then hands off to deliver(). */
 export function InterestForm({ name, fields, submitLabel = 'Send', success = "Thanks. We'll be in touch soon." }) {
@@ -261,6 +277,7 @@ export function Layout({ active, children }) {
   const onClick = (e) => {
     const a = e.target.closest && e.target.closest('a'); if (!a) return;
     const href = a.getAttribute('href') || '';
+    if (/zeffy\.com|paypal\.(com|me)/.test(href)) track('payment_click', { link_url: href, page: window.location.pathname });
     if (href.includes('runsignup.com')) track('runsignup_click', { link_url: href, link_location: new URL(href).searchParams.get('utm_content') || '' });
   };
   return (

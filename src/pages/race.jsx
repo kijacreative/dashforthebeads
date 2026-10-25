@@ -42,7 +42,7 @@ export default function Race() {
           </Stack>
           <div id="schedule" className="anchor">
             <Schedule title="Race day" date={D.dateConfirmed ? D.raceDateLong : D.raceDate} items={D.schedule} />
-            <p style={{ margin: '12px 0 0' }}><Ph>CONFIRM: 2027 date and times (2026 schedule shown)</Ph></p>
+            <p style={{ margin: '12px 0 0' }}><Ph>{D.raceDatePlaceholder}</Ph></p>
           </div>
         </Grid>
       </Section>
@@ -56,7 +56,7 @@ export default function Race() {
           </Stack>
           <Stack gap={20}>
             <H2>Start and finish</H2>
-            <Info icon="map-pin" t="Race start">The Kessler Theater area on W Davis St, at the corner of Clinton Ave. <Ph>CONFIRM: exact start address (1230 W Davis St vs. 607 N. Clinton)</Ph></Info>
+            <Info icon="map-pin" t="Race start">The intersection of W Davis St and N Clinton Ave, by the Kessler Theater. <a href={D.venue.maps} rel="noopener">Open in Maps</a></Info>
             <Info icon="party-flags" t="Finish">Back at the festival grounds on Davis Street, steps from the parade route.</Info>
           </Stack>
         </Grid>

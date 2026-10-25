@@ -109,7 +109,7 @@ export default function Home() {
       </Section>
 
       <Section narrow label="Race updates"><Updates /></Section>
-      <p className="credit">Race photography by Tayo Fasusi Media. <Ph>CONFIRM: which photos are Tayo Fasusi Media</Ph></p>
+      <p className="credit">Race photography by Tayo Fasusi Media and In the Cliff Photography.</p>
     </Layout>
   );
 }

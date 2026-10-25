@@ -1,5 +1,5 @@
 import React from 'react';
-import { DS, D, P, Layout, Section, H2, H3, Lead, Body, Grid, Stack, Row, Card, Ph, PhotoSlot, InterestForm, F, tierCardProps } from '../shared.jsx';
+import { DS, D, P, Layout, Section, H2, H3, Lead, Body, Grid, Stack, Row, Card, Ph, PhotoSlot, InterestForm, F, tierCardProps, PaymentNote } from '../shared.jsx';
 
 // One static page per sponsor level, at /sponsor/<slug>/.
 export default function Tier({ slug }) {
@@ -48,6 +48,7 @@ export default function Tier({ slug }) {
           <Lead>Levels are first come, first served. Send this form and we'll confirm availability and next steps within a few days, or email <a href={'mailto:' + D.email}>{D.email}</a>.</Lead>
           <InterestForm name={'sponsor-' + t.slug} submitLabel="Claim this level" success={"Thanks. We'll confirm the " + t.name + ' and send next steps.'}
             fields={[F.first, F.last, F.company, F.email, F.phone, { name: 'tier', label: 'Level', options: opts, value: t.slug }, F.notes]} />
+          <PaymentNote what="Sponsorships" />
         </Section>
       )}
 
