@@ -19,7 +19,7 @@ const D = {
   runsignup: 'https://runsignup.com/Race/TX/Dallas/DashfortheBeads',
   // Google Apps Script web app URL (ends in /exec) that saves every form to the forms Google Sheet.
   // Setup: google-apps-script/README.md. When empty, forms open a prefilled email to the committee instead.
-  formEndpoint: '',
+  formEndpoint: 'https://script.google.com/macros/s/AKfycbxoi-3s4ifofwiZHtDKYNiCfj5JVPa5daFQNLRe1TDRpUd5Q28cGwl3q0JjYxn39h7a/exec',
   // Social profiles: '' hides the icon and drops it from schema sameAs.
   social: { instagram: '', facebook: '', youtube: '' },
   youtubeId: '',
