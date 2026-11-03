@@ -183,3 +183,4 @@ img{height:auto}
   .cookie button{min-height:40px!important;padding:0 12px!important;font-size:14px!important}
   .cookie>div{flex-wrap:nowrap!important;flex:none}
 }
+.perks .checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px 24px}

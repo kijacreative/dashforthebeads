@@ -12,6 +12,7 @@ export default function Sponsor() {
     { icon: 'party-flags', t: 'Reach', d: <>Thousands more line Davis Street for the Go Oak Cliff Mardi Gras Parade right after the race. Your logo also rides on bibs, shirts, cups, bags, our social posts, and emails to our {D.emailSubscribers} subscribers. <Ph>CONFIRM: social follower counts</Ph></> },
     { icon: 'heart-plus', t: 'Impact', d: <>Net proceeds fund grants for Oak Cliff schools and youth non-profits in fitness, healthy eating, and the arts. More than $450,000 awarded since 2010.</> }
   ];
+  const perks = ['Your name or logo on the Dash tee shirt, with prominent placement for levels $7,500 and up', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'];
   const opts = D.tiers.filter((t) => t.status !== 'claimed').map((t) => ({ value: t.slug, label: t.name + ' (' + t.price + ')' }));
   return (
     <Layout active="involved">
@@ -23,8 +24,9 @@ export default function Sponsor() {
         <Grid min={320} gap={40}>
           <Stack gap={16}>
             <H2 color="var(--text-heading-brand)">Increase your exposure in Oak Cliff</H2>
-            <Lead>The Good Space Dash for the Beads is already one of the largest social gatherings in Oak Cliff, and we keep getting bigger. The {D.edition}th annual Dash will once again join forces with the Go Oak Cliff Mardi Gras Parade, with both events held back-to-back. This is a fantastic opportunity to promote your business to literally thousands of Oak Cliff residents.</Lead>
-            <Body>Our goal is to provide a safe neighborhood event that continues a tradition of community and giving. We would be so grateful to have you become part of our team. Your generosity will continue to help thousands of youth in the North Oak Cliff area.</Body>
+            <Lead>Join one of Oak Cliff's most cherished traditions. The {D.edition}th annual Good Space Dash for the Beads and the Go Oak Cliff Mardi Gras Parade come together for one big community celebration in support of children's health and creativity.</Lead>
+            <Body>Since 2009, the Dash has raised more than $450,000 for local schools and non-profits that promote physical fitness, healthy eating, and the arts. All net proceeds go directly to Oak Cliff organizations helping kids thrive through movement, nutrition, and imagination. We hope you'll be part of the festivities.</Body>
+            <div className="kv"><span>Race day</span><span>{D.raceDate}</span><span>Kick off</span><span>9:00 a.m.</span><span>Location</span><span>1230 W. Davis St at N. Clinton Ave</span></div>
             <Row><Button href="#deck">Request the sponsor deck</Button><Button variant="outline" icon="mail" href={P.contact + '?type=sponsor'}>Contact us</Button></Row>
           </Stack>
           <div className="deadline">
@@ -44,9 +46,14 @@ export default function Sponsor() {
 
       <Section bg="var(--bg-sunken)" id="levels" label="Sponsorship levels">
         <div className="levels-head">
-          <Stack gap={8}><H2>Sponsorship levels</H2><Ph>CONFIRM: prices for Presenting, Community Hero, and Race Start (shown as Claimed)</Ph></Stack>
+          <H2>Sponsorship levels</H2>
           <Row gap={8}>{chip('all', 'All')}{chip('open', 'Available')}{chip('claimed', 'Claimed')}</Row>
         </div>
+        <Card flat className="perks">
+          <H3>Every sponsor gets</H3>
+          <Body>On top of the benefits for your level. Friends of the Dash is a separate membership for individuals and families.</Body>
+          <ul className="checks">{perks.map((b) => <li key={b}><Icon name="check" size={24} color="var(--green-600)" />{b}</li>)}</ul>
+        </Card>
         <Grid min={270} gap={20}>{tiers.map((t) => <SponsorTierCard key={t.slug} {...tierCardProps(t)} />)}</Grid>
       </Section>
 

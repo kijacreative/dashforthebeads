@@ -28,7 +28,7 @@ export const GRANTS_FAQ = [
 ];
 
 export const SPONSOR_FAQ = [
-  { q: 'How much does it cost to sponsor Dash for the Beads?', a: 'Business sponsorships start at $750 (Bronze) and go up to $7,500 for the Race Medal & Awards and Mimosa Bar & Cup levels. Families and individuals can become a Friend of the Dash for $250 a year.' },
+  { q: 'How much does it cost to sponsor Dash for the Beads?', a: 'Business sponsorships start at $750 (Bronze) and go up to $20,000 for the Presenting Sponsor. Open levels include Race Medal & Awards and Mimosa Bar & Cup at $7,500, Bib, Bag, and Beads at $5,000, and Packet Pickup and King of the Hill at $2,500. Families and individuals can become a Friend of the Dash for $250 a year.' },
   { q: 'How do I pay for a sponsorship?', a: `By ${D.payment.methods}. After you claim a level or request the deck, we email payment details.` },
   { q: 'How many people does a sponsorship reach?', a: `About 1,000 runners and their families, thousands of spectators at the Go Oak Cliff Mardi Gras Parade, which follows the race on Davis Street, and a mailing list of ${D.emailSubscribers} subscribers.` },
   { q: 'When are sponsor logos due?', a: 'Logos and names are due by December 31 for printed material and by January 15 for T-shirt printing. Send vector logos (SVG, EPS, or PDF) to info@dashforthebeads.org.', confirm: 'CONFIRM: 2027 production deadlines' },

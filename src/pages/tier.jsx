@@ -21,7 +21,6 @@ export default function Tier({ slug }) {
           <Stack gap={16}>
             <H2>What you get</H2>
             <ul className="checks">{t.benefits.map((b) => <li key={b}><Icon name="check" size={24} color="var(--green-600)" />{b}</li>)}</ul>
-            <Ph>CONFIRM: tier copy from the marketing plan (placement details, reach numbers, exclusivity)</Ph>
           </Stack>
           <Stack gap={12}>
             <PhotoSlot desc={'where the ' + t.name + ' logo appears (bib, medal, cup, banner, or bag mockup)'} ratio="4/3" fallback={D.photos.beads} />
