@@ -12,7 +12,7 @@ export default function Sponsor() {
     { icon: 'party-flags', t: 'Reach', d: <>Thousands more line Davis Street for the Go Oak Cliff Mardi Gras Parade right after the race. Your logo also rides on bibs, shirts, cups, bags, our social posts, and emails to our {D.emailSubscribers} subscribers. <Ph>CONFIRM: social follower counts</Ph></> },
     { icon: 'heart-plus', t: 'Impact', d: <>Net proceeds fund grants for Oak Cliff schools and youth non-profits in fitness, healthy eating, and the arts. More than $450,000 awarded since 2010.</> }
   ];
-  const perks = ['Your name or logo on the Dash tee shirt, with prominent placement for levels $7,500 and up', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'];
+  const perks = ['Will have your name or logo on the Dash tee shirt, with prominent placement for levels $7,500 and up', 'Will have social media and website recognition', 'May place one item in the packet pickup bag given to all runners'];
   const opts = D.tiers.filter((t) => t.status !== 'claimed').map((t) => ({ value: t.slug, label: t.name + ' (' + t.price + ')' }));
   return (
     <Layout active="involved">
@@ -50,7 +50,7 @@ export default function Sponsor() {
           <Row gap={8}>{chip('all', 'All')}{chip('open', 'Available')}{chip('claimed', 'Claimed')}</Row>
         </div>
         <Card flat className="perks">
-          <H3>Every sponsor gets</H3>
+          <H3>Every sponsor</H3>
           <Body>On top of the benefits for your level. Friends of the Dash is a separate membership for individuals and families.</Body>
           <ul className="checks">{perks.map((b) => <li key={b}><Icon name="check" size={24} color="var(--green-600)" />{b}</li>)}</ul>
         </Card>

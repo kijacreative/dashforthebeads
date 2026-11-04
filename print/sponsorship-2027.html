@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>2027 Dash for the Beads Sponsorship Opportunities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=block">
+<style>
+/* Print sheet for the 2027 sponsorship sheet, in the site's brand. Letter size, rendered with headless Chrome. */
+:root{
+  --purple-50:#F5EDFD;--purple-100:#E9D9FB;--purple-200:#D2B2F6;--purple-500:#8224E3;--purple-600:#6C17C4;--purple-700:#55119C;--purple-800:#3E0C73;--purple-900:#2A0850;
+  --green-50:#EEF8EC;--green-100:#D6EFD2;--green-400:#45AE36;--green-500:#2E9E1F;--green-600:#1B7A12;--green-700:#155F0E;
+  --gold-50:#FEFCE6;--gold-100:#FCF7BF;--gold-400:#F2E21B;--gold-500:#D9C90F;--gold-700:#7A6F05;
+  --ink-900:#1C1622;--ink-700:#453D4D;--gray-500:#6E6875;--line-200:#E2DCD0;--paper-100:#F3EEE3;--paper-50:#FBF8F1;
+  --display:'Oswald','Arial Narrow',sans-serif;--body:'Source Sans 3','Segoe UI',sans-serif;--accent:'Alfa Slab One',Georgia,serif;
+}
+@page{size:letter;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;background:#d9d4cc}
+body{font-family:var(--body);color:var(--ink-900);font-size:10.5pt;line-height:1.4;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:8.5in;height:11in;margin:0 auto;background:var(--paper-50);position:relative;overflow:hidden;display:flex;flex-direction:column;page-break-after:always;break-after:page}
+.page:last-child{page-break-after:auto;break-after:auto}
+@media screen{.page{margin:24px auto;box-shadow:0 4px 24px rgba(0,0,0,.18)}}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;text-transform:uppercase;line-height:1;margin:0;letter-spacing:.01em}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+/* Graphic language from the site: bead string, confetti, keyline. */
+.beads{height:14px;flex:none;background:
+  radial-gradient(circle at 7px 50%,var(--purple-500) 0 6.2px,transparent 6.8px) 0 0/42px 100% repeat-x,
+  radial-gradient(circle at 21px 50%,var(--green-500) 0 6.2px,transparent 6.8px) 0 0/42px 100% repeat-x,
+  radial-gradient(circle at 35px 50%,var(--gold-400) 0 6.2px,transparent 6.8px) 0 0/42px 100% repeat-x,
+  linear-gradient(var(--ink-900),var(--ink-900)) 0 50%/100% 1px no-repeat}
+.confetti{background-color:var(--purple-700);background-image:
+  radial-gradient(circle,var(--gold-400) 0 3px,transparent 3.5px),
+  radial-gradient(circle,var(--green-400) 0 2.5px,transparent 3px),
+  radial-gradient(circle,var(--purple-200) 0 2px,transparent 2.5px),
+  radial-gradient(ellipse 7px 2.5px,var(--gold-400) 0 98%,transparent 100%),
+  radial-gradient(ellipse 2.5px 7px,var(--green-400) 0 98%,transparent 100%);
+  background-size:120px 120px,90px 90px,70px 70px,140px 140px,110px 110px;
+  background-position:10px 20px,60px 50px,30px 75px,90px 10px,15px 85px}
+.eyebrow{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:9pt}
+
+/* Cover band */
+.cover{color:#fff;padding:.38in .55in .42in;position:relative}
+.cover__top{display:flex;align-items:center;gap:.3in}
+.badge{width:1.45in;height:1.45in;border-radius:50%;object-fit:cover;flex:none;border:4px solid var(--gold-400);box-shadow:0 0 0 5px var(--purple-700),0 0 0 7px var(--green-500)}
+.cover .eyebrow{color:var(--gold-400)}
+.cover h1{font-size:48pt;line-height:.92;margin:.06in 0 .08in}
+.cover__sub{font-family:var(--accent);font-size:19pt;color:var(--gold-400);line-height:1.1}
+.cover__tag{margin-top:.2in;display:flex;gap:.12in;flex-wrap:wrap}
+.pill{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:10pt;border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:3px 12px;background:rgba(42,8,80,.45)}
+
+/* Event details card */
+.details{margin:-.01in .55in 0;background:var(--gold-400);border:2px solid var(--ink-900);border-radius:10px;display:grid;grid-template-columns:1.05fr .7fr 1.35fr;position:relative;top:-.28in;margin-bottom:-.28in;box-shadow:4px 4px 0 var(--ink-900)}
+.details>div{padding:.12in .18in}
+.details>div+div{border-left:2px solid var(--ink-900)}
+.details .k{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:8.5pt;color:var(--ink-700)}
+.details .v{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:13.5pt;line-height:1.1;margin-top:2px}
+
+.body{padding:.26in .55in .22in;flex:1;display:flex;flex-direction:column;gap:.18in}
+.intro{display:grid;grid-template-columns:1.15fr 1fr;gap:.3in;align-items:stretch}
+.intro p{font-size:10.5pt;line-height:1.42}
+.intro p+p{margin-top:.1in}
+.lead{font-size:12.5pt!important;font-weight:600;color:var(--purple-800)}
+.photo{border-radius:10px;overflow:hidden;border:2px solid var(--ink-900);position:relative;min-height:2in}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:.08in .12in;font-size:7.5pt;color:#fff;background:linear-gradient(180deg,transparent,rgba(42,8,80,.85))}
+.stat{display:flex;align-items:center;gap:.14in;background:var(--purple-700);color:#fff;border-radius:10px;padding:.12in .16in;margin-top:.12in}
+.stat b{font-family:var(--accent);font-weight:400;font-size:21pt;color:var(--gold-400);line-height:1}
+.stat span{font-size:9.3pt;line-height:1.3;flex:1}
+
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:.18in}
+.feature{background:#fff;border:1.5px solid var(--line-200);border-top:6px solid var(--purple-500);border-radius:8px;padding:.12in .14in}
+.feature:nth-child(2){border-top-color:var(--green-500)}
+.feature:nth-child(3){border-top-color:var(--gold-500)}
+.feature h3{font-size:13pt;margin-bottom:.07in;color:var(--purple-800)}
+.feature p,.feature li{font-size:9.1pt;line-height:1.34}
+.feature li{padding-left:12px;position:relative}
+.feature li+li{margin-top:4px}
+.feature li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--purple-500)}
+.feature em{font-style:italic;color:var(--purple-700)}
+
+.foot{margin-top:auto;flex:none}
+.foot__bar{background:var(--ink-900);color:var(--paper-50);display:flex;justify-content:space-between;align-items:center;padding:.13in .55in;font-size:9.5pt}
+.foot__bar b{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-weight:600;color:var(--gold-400)}
+.foot__bar a{color:inherit;text-decoration:none}
+
+/* Inner pages */
+.head{padding:.3in .55in .18in;color:#fff;display:flex;align-items:center;gap:.22in}
+.head img{width:.72in;height:.72in;border-radius:50%;border:3px solid var(--gold-400);flex:none}
+.head .eyebrow{color:var(--gold-400)}
+.head h2{font-size:27pt;margin-top:3px}
+.inner{padding:.2in .55in .2in;flex:1;display:flex;flex-direction:column;gap:.14in}
+
+.every{display:grid;grid-template-columns:1.3in 1fr;gap:.2in;align-items:center;background:var(--gold-50);border:2px solid var(--gold-500);border-radius:10px;padding:.11in .18in}
+.every h3{font-size:14pt;line-height:1.05}
+.every p{font-size:9pt;color:var(--ink-700);margin-top:4px}
+.every ul{display:grid;grid-template-columns:repeat(3,1fr);gap:.16in}
+.every li{font-size:9.2pt;line-height:1.3;padding-left:20px;position:relative}
+.check::before,.every li::before{content:"";position:absolute;left:0;top:1px;width:14px;height:14px;border-radius:50%;background:var(--green-600) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.6 7.2l2.3 2.3 4.5-4.8' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+
+.group{display:flex;align-items:baseline;gap:.14in}
+.group h3{font-size:14pt}
+.group span{font-size:9.5pt;color:var(--ink-700)}
+.group::after{content:"";flex:1;height:2px;background:var(--line-200);align-self:center}
+
+.tiers{display:grid;gap:.14in}
+.tiers--2{grid-template-columns:repeat(2,1fr)}
+.tiers--3{grid-template-columns:repeat(3,1fr)}
+.tier{background:#fff;border:2px solid var(--ink-900);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.tier__h{padding:.09in .14in .08in;display:flex;justify-content:space-between;align-items:flex-end;gap:.1in;color:#fff;background:var(--purple-600)}
+.tier__h h4{font-size:13pt;line-height:1.02}
+.tier__p{font-family:var(--accent);font-size:15pt;line-height:1;white-space:nowrap;color:var(--gold-400)}
+.tier ul{padding:.09in .14in .11in;display:flex;flex-direction:column;gap:3px}
+.tier li{font-size:9pt;line-height:1.3;padding-left:20px;position:relative}
+.tier li.hl{font-weight:700}
+.tier--purple .tier__h{background:var(--purple-700)}
+.tier--top .tier__h{background:var(--purple-900)}
+.tier--top .tier__h h4{font-size:15pt}
+.tier--top .tier__p{font-size:18pt}
+.tier--green .tier__h{background:var(--green-600)}
+.tier--green .tier__p{color:var(--gold-400)}
+.tier--level .tier__h{background:var(--ink-900)}
+.tier--friends{border-style:dashed}
+.tier--friends .tier__h{background:var(--gold-400);color:var(--ink-900)}
+.tier--friends .tier__p{color:var(--purple-700)}
+.tier__note{margin:auto .16in .12in;font-size:8.3pt;color:var(--gray-500);font-style:italic}
+
+.next{display:grid;grid-template-columns:1.25fr 1fr;gap:.14in;margin-top:auto}
+.next__card{background:var(--purple-700);color:#fff;border-radius:10px;padding:.18in .22in;display:flex;flex-direction:column;gap:.08in}
+.next__card h3{font-size:17pt;color:var(--gold-400)}
+.next__card ol{margin:0;padding-left:1.15em;font-size:10pt;line-height:1.4}
+.next__card ol li+li{margin-top:4px}
+.next__card a{color:var(--gold-400);font-weight:700;text-decoration:none}
+.next__photo{border-radius:10px;overflow:hidden;border:2px solid var(--ink-900);position:relative}
+.next__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.next__photo span{position:absolute;left:.14in;bottom:.12in;right:.14in;font-family:var(--accent);font-size:15pt;line-height:1.1;color:var(--gold-400);text-shadow:0 2px 6px rgba(0,0,0,.6)}
+</style>
+</head>
+<body>
+
+<!-- Page 1: the event -->
+<section class="page">
+  <header class="cover confetti">
+    <div class="cover__top">
+      <img class="badge" src="../public/assets/logo/badge.jpg" alt="Dash for the Beads badge">
+      <div>
+        <div class="eyebrow">18th Annual · Good Space</div>
+        <h1>Dash for<br>the Beads</h1>
+        <div class="cover__sub">2027 Sponsorship Opportunities</div>
+      </div>
+    </div>
+    <div class="cover__tag"><span class="pill">5K Run</span><span class="pill">1-Mile Fun Run</span><span class="pill">Family Festival</span><span class="pill">Mardi Gras Parade</span></div>
+  </header>
+  <div class="beads"></div>
+  <div class="details">
+    <div><div class="k">Date</div><div class="v">Sunday, Feb 7, 2027</div></div>
+    <div><div class="k">Kick off</div><div class="v">9:00 a.m.</div></div>
+    <div><div class="k">Location</div><div class="v">1230 W. Davis St &amp; N. Clinton Ave, Dallas 75208</div></div>
+  </div>
+
+  <div class="body">
+    <div class="intro">
+      <div>
+        <p class="lead">Join us for one of Oak Cliff's most cherished traditions!</p>
+        <p>The Dash for the Beads and the Go Oak Cliff Mardi Gras Parade come together to create a vibrant celebration. This large community event is all in support of children's health and creativity.</p>
+        <p>We hope you can be part of the festivities and a worthwhile cause. All net proceeds of the Dash go directly to Oak Cliff organizations helping kids thrive through movement, nutrition, and imagination.</p>
+        <div class="stat"><b>$450,000+</b><span>raised since 2009 for local schools and non-profits that promote physical fitness, healthy eating, and the arts.</span></div>
+      </div>
+      <figure class="photo" style="margin:0"><img src="../public/assets/photos/costume-crew.webp" alt="Costumed runners at Dash for the Beads"><figcaption>Photo: Tayo Fasusi Media and In the Cliff Photography</figcaption></figure>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Race &amp; Fun Run</h3>
+        <ul>
+          <li><b>5K Race:</b> a scenic, challenging, chip-timed course through Kessler Park, starting and ending at Davis &amp; Clinton in front of the Kessler Theater.</li>
+          <li><b>1-Mile Fun Run:</b> a family-friendly stroll before the 5K, so parents and youth runners can do both.</li>
+          <li><b>Awards:</b> medals for the top 3 male and female runners in 9 age categories.</li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h3>Mardi Gras Festival</h3>
+        <p>One of the best Mardi Gras parties in North Texas starts with us! From before the racers take off right up to the start of the parade, enjoy music, food trucks, fresh mimosas, and craft beer. Our festival is a prime viewing spot for the Go Oak Cliff Mardi Gras Parade!</p>
+      </div>
+      <div class="feature">
+        <h3>Registration</h3>
+        <p>Registration for the 2027 Dash for the Beads is open now. Don't miss your chance to run, walk, party, and make a difference.</p>
+        <p style="margin-top:.08in"><em>Laissez les bons temps rouler!</em><br>(Let the good times roll!)</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="beads"></div>
+    <div class="foot__bar"><b>Good Space Dash for the Beads</b><span><a href="mailto:info@dashforthebeads.org">info@dashforthebeads.org</a> &nbsp;·&nbsp; <a href="https://www.dashforthebeads.org">dashforthebeads.org</a></span></div>
+  </footer>
+</section>
+
+<!-- Page 2: top levels -->
+<section class="page">
+  <header class="head confetti">
+    <img src="../public/assets/logo/badge.jpg" alt="">
+    <div><div class="eyebrow">2027 Dash for the Beads</div><h2>Sponsorship Opportunities</h2></div>
+  </header>
+  <div class="beads"></div>
+  <div class="inner">
+    <div class="every">
+      <div><h3>Every sponsor</h3><p>Plus the benefits of your level. Does not apply to Friends of the Dash.</p></div>
+      <ul>
+        <li>Will have your name or logo on the Dash tee shirt, with prominent placement for purple levels</li>
+        <li>Will have social media and website recognition</li>
+        <li>May place one item in the packet pickup bag given to all runners</li>
+      </ul>
+    </div>
+
+    <div class="group"><h3>Purple levels</h3><span>Prominent tee shirt placement</span></div>
+    <div class="tiers tiers--2">
+      <div class="tier tier--top">
+        <div class="tier__h"><h4>Presenting<br>Sponsor</h4><div class="tier__p">$20,000</div></div>
+        <ul>
+          <li class="check hl">Event naming rights</li>
+          <li class="check">Logo on all Dash promotions and signage</li>
+          <li class="check">Prominent signage facing the parade</li>
+          <li class="check">Private party area for the parade</li>
+          <li class="check">Private party area in the tent/venue</li>
+        </ul>
+      </div>
+      <div class="tier tier--top">
+        <div class="tier__h"><h4>Community Hero<br>Sponsor</h4><div class="tier__p">$10,000</div></div>
+        <ul>
+          <li class="check hl">Premier vendor spot in the festival</li>
+          <li class="check">Prominent signage facing the race</li>
+          <li class="check">Preferred bleacher seating for four</li>
+          <li class="check">15 race entries (5K or 1 mile)</li>
+        </ul>
+      </div>
+      <div class="tier tier--purple">
+        <div class="tier__h"><h4>Race Medal &amp;<br>Awards Sponsor</h4><div class="tier__p">$7,500</div></div>
+        <ul>
+          <li class="check hl">Your logo on all distributed race medals</li>
+          <li class="check hl">Your logo on all qualifying awards</li>
+          <li class="check">Vendor spot in the festival</li>
+          <li class="check">Preferred bleacher seating for four</li>
+          <li class="check">10 race entries (5K or 1 mile)</li>
+        </ul>
+      </div>
+      <div class="tier tier--purple">
+        <div class="tier__h"><h4>Mimosa Bar &amp;<br>Cup Sponsor</h4><div class="tier__p">$7,500</div></div>
+        <ul>
+          <li class="check hl">Your logo on the banner at the Mimosa Bar</li>
+          <li class="check hl">Your logo on all distributed Dash cups</li>
+          <li class="check">Vendor spot in the festival</li>
+          <li class="check">Preferred bleacher seating for four</li>
+          <li class="check">10 race entries (5K or 1 mile)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="group"><h3>$5,000 levels</h3></div>
+    <div class="tiers tiers--3">
+      <div class="tier tier--green">
+        <div class="tier__h"><h4>Bib<br>Sponsor</h4><div class="tier__p">$5,000</div></div>
+        <ul>
+          <li class="check hl">Your logo on all Dash race bibs for the 5K and 1 mile</li>
+          <li class="check">Vendor spot in the festival</li>
+          <li class="check">Bleacher seating for two</li>
+          <li class="check">8 race entries (5K or 1 mile)</li>
+        </ul>
+      </div>
+      <div class="tier tier--green">
+        <div class="tier__h"><h4>Bag<br>Sponsor</h4><div class="tier__p">$5,000</div></div>
+        <ul>
+          <li class="check hl">Your logo on all bags distributed to runners</li>
+          <li class="check">Vendor spot in the festival</li>
+          <li class="check">Bleacher seating for two</li>
+          <li class="check">8 race entries (5K or 1 mile)</li>
+        </ul>
+      </div>
+      <div class="tier tier--green">
+        <div class="tier__h"><h4>Beads<br>Sponsor</h4><div class="tier__p">$5,000</div></div>
+        <ul>
+          <li class="check hl">Your logo on all Mardi Gras beads distributed</li>
+          <li class="check">Vendor spot in the festival</li>
+          <li class="check">Bleacher seating for two</li>
+          <li class="check">8 race entries (5K or 1 mile)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer class="foot">
+    <div class="beads"></div>
+    <div class="foot__bar"><b>Sponsorship Opportunities</b><span>info@dashforthebeads.org &nbsp;·&nbsp; dashforthebeads.org</span></div>
+  </footer>
+</section>
+
+<!-- Page 3: remaining levels and next steps -->
+<section class="page">
+  <header class="head confetti">
+    <img src="../public/assets/logo/badge.jpg" alt="">
+    <div><div class="eyebrow">2027 Dash for the Beads</div><h2>More Ways to Sponsor</h2></div>
+  </header>
+  <div class="beads"></div>
+  <div class="inner">
+    <div class="group"><h3>$2,500 levels</h3></div>
+    <div class="tiers tiers--3">
+      <div class="tier tier--green">
+        <div class="tier__h"><h4>Packet Pickup<br>Sponsor</h4><div class="tier__p">$2,500</div></div>
+        <ul>
+          <li class="check hl">We send our runners to your business to pick up their Dash packets</li>
+          <li class="check">Vendor spot in the festival</li>
+          <li class="check">Bleacher seating for two</li>
+          <li class="check">4 race entries (5K or 1 mile)</li>
+        </ul>
+      </div>
+      <div class="tier tier--green">
+        <div class="tier__h"><h4>King of the Hill<br>Sponsor</h4><div class="tier__p">$2,500</div></div>
+        <ul>
+          <li class="check hl">Your logo on special signage at the King of the Hill location and award</li>
+          <li class="check">Vendor spot in the festival</li>
+          <li class="check">Bleacher seating for two</li>
+          <li class="check">4 race entries (5K or 1 mile)</li>
+        </ul>
+      </div>
+      <div class="tier tier--green">
+        <div class="tier__h"><h4>Race Start<br>Sponsor</h4><div class="tier__p">$2,500</div></div>
+        <ul>
+          <li class="check hl">Your logo on signage at the start and end of the race</li>
+          <li class="check">Vendor spot in the festival</li>
+          <li class="check">Bleacher seating for two</li>
+          <li class="check">4 race entries (5K or 1 mile)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="group"><h3>Sponsor levels</h3></div>
+    <div class="tiers tiers--3">
+      <div class="tier tier--level">
+        <div class="tier__h"><h4>Gold<br>Sponsor</h4><div class="tier__p">$1,500</div></div>
+        <ul><li class="check">Bleacher seating for two</li><li class="check">4 race entries (5K or 1 mile)</li></ul>
+      </div>
+      <div class="tier tier--level">
+        <div class="tier__h"><h4>Silver<br>Sponsor</h4><div class="tier__p">$1,000</div></div>
+        <ul><li class="check">Bleacher seating for two</li><li class="check">2 race entries (5K or 1 mile)</li></ul>
+      </div>
+      <div class="tier tier--level">
+        <div class="tier__h"><h4>Bronze<br>Sponsor</h4><div class="tier__p">$750</div></div>
+        <ul><li class="check">4 race entries (5K or 1 mile)</li></ul>
+      </div>
+    </div>
+
+    <div class="group"><h3>For individuals &amp; families</h3></div>
+    <div class="tiers tiers--2">
+      <div class="tier tier--friends">
+        <div class="tier__h"><h4>Friends of<br>the Dash</h4><div class="tier__p">$250</div></div>
+        <ul><li class="check">Website recognition</li><li class="check">2 race entries (5K or 1 mile)</li></ul>
+        <p class="tier__note">The "Every sponsor" benefits do not apply to Friends of the Dash.</p>
+      </div>
+      <div class="next__photo" style="min-height:2.15in"><img src="../public/assets/photos/bead-throw.webp" alt="Beads thrown to the crowd"><span>Laissez les bons temps rouler!</span></div>
+    </div>
+
+    <div class="next">
+      <div class="next__card">
+        <h3>Become a sponsor</h3>
+        <ol>
+          <li>Pick your level at <a href="https://www.dashforthebeads.org/get-involved/sponsor/">dashforthebeads.org/get-involved/sponsor</a> or email <a href="mailto:info@dashforthebeads.org">info@dashforthebeads.org</a>.</li>
+          <li>Pay by PayPal, Zelle, or check. We'll email payment details.</li>
+          <li>Send a vector logo (SVG, EPS, or PDF) so it makes the shirts and signage.</li>
+        </ol>
+      </div>
+      <div class="next__card" style="background:var(--green-600)">
+        <h3 style="color:var(--gold-400)">Where it goes</h3>
+        <p style="font-size:10pt;line-height:1.4">All net proceeds go directly to Oak Cliff schools and youth non-profits in fitness, healthy eating, and the arts. More than $450,000 raised since 2009.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="foot">
+    <div class="beads"></div>
+    <div class="foot__bar"><b>Thank you for supporting Oak Cliff kids</b><span>info@dashforthebeads.org &nbsp;·&nbsp; dashforthebeads.org</span></div>
+  </footer>
+</section>
+
+</body>
+</html>

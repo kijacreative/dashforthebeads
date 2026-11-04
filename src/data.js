@@ -2,7 +2,7 @@
 export const SITE_URL = 'https://dashforthebeads.org';
 
 // Benefits every paid sponsor gets (not Friends of the Dash).
-const sponsorPerks = (prominent) => [prominent ? 'Prominent placement of your name or logo on the Dash tee shirt' : 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'One item in the packet pickup bag given to all runners'];
+const sponsorPerks = (prominent) => [prominent ? 'Prominent placement of your name or logo on the Dash tee shirt' : 'Your name or logo on the Dash tee shirt', 'Social media and website recognition', 'May place one item in the packet pickup bag given to all runners'];
 
 const D = {
   registrationOpen: false,
