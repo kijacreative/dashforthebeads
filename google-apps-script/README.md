@@ -14,7 +14,7 @@ Columns are the field labels people see ("First name", "Email", "Comments"), plu
 
 1. Sign in to the Google account that should own the submissions (ideally the info@dashforthebeads.org account) and create a blank sheet at [sheets.new](https://sheets.new). Name it **Dash for the Beads Website Forms**.
 2. In the sheet: **Extensions → Apps Script**. Delete the starter code, paste in all of `Code.gs` from this folder, and save.
-3. Optional: to get an email for each contact, sponsor, vendor, volunteer, or Friends submission, set `NOTIFY_EMAIL` near the top (for example `'info@dashforthebeads.org'`).
+3. Email alerts: `NOTIFY_EMAIL` near the top is set to `'info@dashforthebeads.org'`, and `NOTIFY_FORMS` lists which forms send one. Out of the box that's the two Friends of the Dash forms. Add `'contact'`, `'sponsor-deck'`, `'vendor'`, or `'volunteer'` to get alerts for those too, or set `NOTIFY_EMAIL` to `''` to turn alerts off.
 4. **Deploy → New deployment**. Click the gear and choose **Web app**. Set:
    - Execute as: **Me**
    - Who has access: **Anyone**
@@ -30,6 +30,17 @@ Until `formEndpoint` is set, forms fall back to opening a prefilled email to inf
 ## Updating the script
 
 After editing `Code.gs` in Apps Script, use **Deploy → Manage deployments → Edit (pencil) → Version: New version → Deploy**. This keeps the same URL. Creating a *new deployment* instead gives you a new URL, which you'd then have to update in `src/data.js`.
+
+## Friends of the Dash alerts
+
+Each Friends sign-up emails info@dashforthebeads.org with the subject **New Friend of the Dash: First Last**. Hit Reply to answer the person directly with payment details. Sign-ups are saved either way:
+
+| Where they signed up | Form name | Sheet tab |
+| --- | --- | --- |
+| Get Involved page | `friends` | Friends |
+| Friends of the Dash sponsor page (linked from the Friends email) | `sponsor-friends-of-the-dash` | Sponsor claims |
+
+Sending email is a new permission. When you deploy the new version, Google asks you to authorize it (allow "Send email as you"). If it doesn't ask, pick `doGet` in the Apps Script toolbar and click **Run** once to bring up the prompt. Until it's approved, alerts won't send, but sign-ups still save.
 
 ## Notes
 

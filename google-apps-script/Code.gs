@@ -9,9 +9,13 @@
  * and are de-duplicated by email. New fields get new columns automatically.
  */
 
-// Optional: email the committee when these forms come in. Leave NOTIFY_EMAIL empty to turn off.
-const NOTIFY_EMAIL = '';
-const NOTIFY_FORMS = ['contact', 'sponsor-deck', 'vendor', 'volunteer', 'friends'];
+// Email the committee when these forms come in. Leave NOTIFY_EMAIL empty to turn all alerts off.
+// Friends of the Dash sign-ups come from two forms: the Get Involved page ("friends")
+// and the Friends of the Dash sponsor page ("sponsor-friends-of-the-dash").
+// To get alerts for more forms, add their names, e.g. 'contact', 'sponsor-deck', 'vendor', 'volunteer'.
+const NOTIFY_EMAIL = 'info@dashforthebeads.org';
+const NOTIFY_FORMS = ['friends', 'sponsor-friends-of-the-dash'];
+const FRIENDS_FORMS = ['friends', 'sponsor-friends-of-the-dash'];
 
 const NEWSLETTER_FORMS = ['race-updates', 'mailing-list'];
 const TAB_NAMES = { contact: 'Contact', 'sponsor-deck': 'Sponsor deck', friends: 'Friends', vendor: 'Vendors', volunteer: 'Volunteers' };
@@ -41,7 +45,10 @@ function doPost(e) {
       lock.releaseLock();
     }
 
-    if (NOTIFY_EMAIL && NOTIFY_FORMS.indexOf(form) !== -1) notify(form, fields);
+    if (NOTIFY_EMAIL && NOTIFY_FORMS.indexOf(form) !== -1) {
+      // A failed alert must not fail the submission: the row is already saved.
+      try { notify(form, fields); } catch (mailErr) { console.error(mailErr); }
+    }
     return json({ ok: true });
   } catch (err) {
     console.error(err);
@@ -103,7 +110,14 @@ function notify(form, fields) {
   const body = Object.keys(fields).map((k) => k + ': ' + fields[k]).join('\n');
   const opts = { name: 'Dash for the Beads website' };
   if (fields.Email && /^\S+@\S+\.\S+$/.test(fields.Email)) opts.replyTo = fields.Email;
-  MailApp.sendEmail(NOTIFY_EMAIL, 'Website form: ' + form, body + '\n\nAll submissions: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl(), opts);
+  const who = [fields['First name'], fields['Last name']].filter(Boolean).join(' ');
+  const subject = FRIENDS_FORMS.indexOf(form) !== -1
+    ? 'New Friend of the Dash' + (who ? ': ' + who : '')
+    : 'Website form: ' + form;
+  const intro = FRIENDS_FORMS.indexOf(form) !== -1
+    ? 'Someone just signed up to be a Friend of the Dash ($250). Reply to this email to send them payment details.\n\n'
+    : '';
+  MailApp.sendEmail(NOTIFY_EMAIL, subject, intro + body + '\n\nForm: ' + form + '\nAll submissions: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl(), opts);
 }
 
 function json(o) {
