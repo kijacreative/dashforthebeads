@@ -2,11 +2,11 @@
 
 Everything needed to recruit $250 Friends of the Dash sponsors by email and social media.
 
-Sign-up link (used everywhere): https://dashforthebeads.org/sponsor/friends-of-the-dash/#claim
+Sign-up link (used everywhere): https://www.dashforthebeads.org/sponsor/friends-of-the-dash/#claim
 
 ## Before sending
 
-1. **Deploy the site.** The email's images load from `https://dashforthebeads.org/assets/email/` (files live in `public/assets/email/`). They won't show until the site is deployed.
+1. **Deploy the site.** The email's images load from `https://www.dashforthebeads.org/assets/email/` (files live in `public/assets/email/`). They won't show until the site is deployed.
 2. **Send yourself a test** from your email tool and open it on a phone.
 
 ## Email
@@ -37,7 +37,7 @@ Sign-up link (used everywhere): https://dashforthebeads.org/sponsor/friends-of-t
 > - Show your commitment to giving back.
 > - Be part of a great cause: all net proceeds go to Oak Cliff kids through fitness, nutrition, and the arts. The Dash has awarded more than $450,000 so far.
 >
-> Joining takes two minutes: send the short form at https://dashforthebeads.org/sponsor/friends-of-the-dash/ or simply reply to this email. We'll send payment details (PayPal, Zelle, or check).
+> Joining takes two minutes: send the short form at https://www.dashforthebeads.org/sponsor/friends-of-the-dash/ or simply reply to this email. We'll send payment details (PayPal, Zelle, or check).
 >
 > Thank you for considering supporting Dash for the Beads. Together, we can make a difference, one step at a time!
 >
@@ -46,7 +46,7 @@ Sign-up link (used everywhere): https://dashforthebeads.org/sponsor/friends-of-t
 > 2027 Dash for the Beads 5K Fun Run & Family Festival
 > Making Every Step Count!
 >
-> P.S. Representing a business? Sponsorships start at $750 and include your name or logo on the Dash tee shirt. See all levels: https://dashforthebeads.org/get-involved/sponsor/
+> P.S. Representing a business? Sponsorships start at $750 and include your name or logo on the Dash tee shirt. See all levels: https://www.dashforthebeads.org/get-involved/sponsor/
 
 ## Social graphics (`social/`)
 
@@ -77,7 +77,7 @@ To change wording, edit `social/social.html` and run `zsh marketing/friends-of-t
 >
 > $250 includes 2 race entries and your name on our website, and every dollar of net proceeds goes to Oak Cliff schools and youth non-profits. The Dash has awarded more than $450,000 so far.
 >
-> Join here: https://dashforthebeads.org/sponsor/friends-of-the-dash/
+> Join here: https://www.dashforthebeads.org/sponsor/friends-of-the-dash/
 >
 > Making every step count! 🎭
 
