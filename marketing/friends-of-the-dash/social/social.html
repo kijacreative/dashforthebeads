@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Friends of the Dash social graphics</title>
+<!-- Source for the Friends of the Dash social PNGs. Render with: node marketing/friends-of-the-dash/social/render.mjs -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=block">
+<style>
+:root{
+  --purple-200:#D2B2F6;--purple-500:#8224E3;--purple-600:#6C17C4;--purple-700:#55119C;--purple-800:#3E0C73;--purple-900:#2A0850;
+  --green-400:#45AE36;--green-500:#2E9E1F;--green-600:#1B7A12;--gold-400:#F2E21B;--gold-500:#D9C90F;--gold-50:#FEFCE6;
+  --ink:#1C1622;--ink-700:#453D4D;--paper:#FBF8F1;--paper-100:#F3EEE3;
+  --display:'Oswald','Arial Narrow',sans-serif;--body:'Source Sans 3',sans-serif;--accent:'Alfa Slab One',Georgia,serif;
+  --P:../../../design-source/raw-assets/photos/;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#888}
+body{font-family:var(--body);color:var(--ink);display:flex;flex-direction:column;gap:40px;align-items:flex-start;padding:40px}
+body.single{padding:0;gap:0;background:transparent}
+body.single .art:not(.on){display:none}
+.art{position:relative;overflow:hidden;flex:none;display:flex;flex-direction:column}
+.sq{width:1080px;height:1350px}
+.story{width:1080px;height:1920px}
+.wide{width:1200px;height:630px}
+h1,h2,h3{font-family:var(--display);font-weight:700;text-transform:uppercase;margin:0;line-height:.92;letter-spacing:.005em}
+p{margin:0}
+
+.confetti{background-color:var(--purple-700);background-image:
+  radial-gradient(circle,var(--gold-400) 0 5px,transparent 7px),
+  radial-gradient(circle,var(--green-400) 0 4px,transparent 5px),
+  radial-gradient(circle,rgba(210,178,246,.6) 0 4px,transparent 5px),
+  radial-gradient(ellipse 14px 5px,var(--gold-400) 0 98%,transparent 100%),
+  radial-gradient(ellipse 5px 14px,var(--green-400) 0 98%,transparent 100%);
+  background-size:330px 330px,270px 270px,210px 210px,390px 390px,300px 300px;
+  background-position:20px 40px,120px 100px,60px 150px,180px 20px,30px 170px}
+.beads{height:28px;flex:none;background:
+  radial-gradient(circle at 14px 50%,var(--purple-500) 0 12.5px,transparent 13.5px) 0 0/84px 100% repeat-x,
+  radial-gradient(circle at 42px 50%,var(--green-500) 0 12.5px,transparent 13.5px) 0 0/84px 100% repeat-x,
+  radial-gradient(circle at 70px 50%,var(--gold-400) 0 12.5px,transparent 13.5px) 0 0/84px 100% repeat-x,
+  linear-gradient(var(--ink),var(--ink)) 0 50%/100% 2px no-repeat}
+.badge{border-radius:50%;border:6px solid var(--gold-400);box-shadow:0 0 0 8px var(--purple-700),0 0 0 12px var(--green-500);flex:none;object-fit:cover}
+.eyebrow{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.16em}
+.photo{position:relative;border:5px solid var(--ink);border-radius:22px;overflow:hidden;background:var(--ink)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sticker{position:absolute;background:var(--gold-400);color:var(--ink);border:5px solid var(--ink);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:8px 8px 0 var(--ink);transform:rotate(-8deg)}
+.sticker b{font-family:var(--accent);font-weight:400;line-height:.9;color:var(--purple-700)}
+.sticker span{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.url{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.check{position:relative;padding-left:96px}
+.check::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:68px;height:68px;border-radius:50%;border:4px solid var(--ink);background:var(--green-500) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.6 7.2l2.3 2.3 4.5-4.8' fill='none' stroke='white' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/48px no-repeat}
+.foot{flex:none;background:var(--ink);color:var(--paper);display:flex;justify-content:space-between;align-items:center}
+.foot b{color:var(--gold-400)}
+.foot span{white-space:nowrap;font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+
+/* ---------- 1. Carousel: invite ---------- */
+#c1{color:#fff}
+#c1 .top{display:flex;align-items:center;gap:36px;padding:64px 70px 0}
+#c1 .top .badge{width:150px;height:150px}
+#c1 .top .eyebrow{font-size:30px;color:var(--gold-400);line-height:1.3}
+#c1 h1{font-size:150px;padding:44px 70px 0;text-shadow:6px 6px 0 var(--purple-900)}
+#c1 h1 em{font-style:normal;color:var(--gold-400)}
+#c1 .photo{margin:44px 70px 0;flex:1}
+#c1 .sticker{right:56px;top:470px;width:300px;height:300px}
+#c1 .sticker b{font-size:88px}
+#c1 .sticker span{font-size:30px;margin-top:6px}
+#c1 .foot{padding:30px 70px;font-size:34px;margin-top:50px}
+#c1 .foot span{white-space:nowrap;font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+
+/* ---------- 2. Carousel: what you get ---------- */
+#c2{background:var(--paper)}
+#c2 .head{padding:80px 80px 0}
+#c2 .eyebrow{font-size:30px;color:var(--green-600)}
+#c2 h2{font-size:124px;color:var(--purple-900);margin-top:18px}
+#c2 h2 span{font-family:var(--accent);font-weight:400;color:var(--purple-600);text-transform:none}
+#c2 ul{list-style:none;margin:70px 80px 0;padding:0;display:flex;flex-direction:column;gap:46px}
+#c2 li{font-size:50px;line-height:1.12;font-weight:600}
+#c2 li small{display:block;font-size:34px;font-weight:400;color:var(--ink-700);margin-top:8px}
+#c2 .card{margin:auto 80px 0;background:var(--purple-700);color:#fff;border:5px solid var(--ink);border-radius:24px;box-shadow:12px 12px 0 var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+#c2 .card p{font-size:36px;line-height:1.2}
+#c2 .card b{font-family:var(--accent);font-weight:400;font-size:100px;color:var(--gold-400);line-height:1}
+#c2 .beads{margin-top:70px}
+#c2 .foot{padding:30px 80px;font-size:34px}
+
+/* ---------- 3. Carousel: impact + how ---------- */
+#c3{color:#fff}
+#c3 .stat{padding:90px 80px 0}
+#c3 .stat .eyebrow{font-size:30px;color:var(--gold-400)}
+#c3 .stat b{display:block;font-family:var(--accent);font-weight:400;font-size:150px;line-height:1;color:var(--gold-400);margin-top:20px;text-shadow:7px 7px 0 var(--purple-900)}
+#c3 .stat p{font-size:44px;line-height:1.2;margin-top:18px;max-width:880px}
+#c3 .how{margin:70px 80px 0;background:var(--paper);color:var(--ink);border:5px solid var(--ink);border-radius:24px;box-shadow:12px 12px 0 var(--ink);padding:48px 52px}
+#c3 .how h3{font-size:64px;color:var(--purple-900)}
+#c3 .how ol{list-style:none;margin:30px 0 0;padding:0;display:flex;flex-direction:column;gap:24px;counter-reset:s}
+#c3 .how li{font-size:40px;line-height:1.2;padding-left:84px;position:relative;counter-increment:s}
+#c3 .how li::before{content:counter(s);position:absolute;left:0;top:-4px;width:60px;height:60px;border-radius:50%;background:var(--purple-500);color:#fff;font-family:var(--display);font-weight:700;font-size:36px;display:flex;align-items:center;justify-content:center}
+#c3 .how li:nth-child(2)::before{background:var(--green-500)}
+#c3 .how li:nth-child(3)::before{background:var(--gold-400);color:var(--ink)}
+#c3 .cta{margin:auto 80px 0;display:flex;align-items:center;gap:30px}
+#c3 .cta .badge{width:130px;height:130px}
+#c3 .cta .url{font-size:52px;color:var(--gold-400);line-height:1.05}
+#c3 .cta small{display:block;font-family:var(--body);font-weight:600;text-transform:none;letter-spacing:0;font-size:32px;color:#fff;margin-top:6px}
+#c3 .beads{margin-top:64px}
+#c3 .foot{padding:34px 80px;font-size:28px}
+
+/* ---------- 4. Story ---------- */
+#st{color:#fff}
+#st .photo{height:760px;border-width:0 0 6px;border-radius:0}
+#st .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,22,34,.85) 0,rgba(28,22,34,.4) 22%,transparent 38%,transparent 70%,rgba(42,8,80,.5))}
+#st .top{position:absolute;top:120px;left:70px;right:70px;display:flex;align-items:center;gap:30px;z-index:2}
+#st .top .badge{width:140px;height:140px}
+#st .top .eyebrow{font-size:30px;color:#fff;line-height:1.3;background:rgba(28,22,34,.78);padding:12px 20px;border-radius:12px}
+#st .sticker{right:60px;top:600px;width:310px;height:310px;z-index:3}
+#st .sticker b{font-size:92px}
+#st .sticker span{font-size:30px;margin-top:6px}
+#st h1{font-size:138px;padding:90px 70px 0;text-shadow:6px 6px 0 var(--purple-900)}
+#st h1 em{font-style:normal;color:var(--gold-400)}
+#st ul{list-style:none;margin:50px 70px 60px;padding:0;display:flex;flex-direction:column;gap:34px}
+#st li{font-size:48px;font-weight:600;line-height:1.15}
+#st li.check::before{border-color:#fff}
+#st .cta{margin:auto 70px 0;background:var(--gold-400);color:var(--ink);border:5px solid var(--ink);border-radius:999px;box-shadow:10px 10px 0 var(--ink);text-align:center;padding:30px 20px}
+#st .cta .url{font-size:50px}
+#st .cta small{display:block;font-size:30px;font-weight:600;margin-top:2px}
+#st .beads{margin-top:90px}
+#st .foot{padding:34px 70px 150px;font-size:32px;justify-content:center}
+
+/* ---------- 5. Wide (Facebook, LinkedIn, X, event cover) ---------- */
+#wd{flex-direction:row;color:#fff}
+#wd .l{flex:1;padding:50px 0 0 56px;display:flex;flex-direction:column}
+#wd .l .row{display:flex;align-items:center;gap:22px}
+#wd .badge{width:90px;height:90px;border-width:4px;box-shadow:0 0 0 5px var(--purple-700),0 0 0 8px var(--green-500)}
+#wd .eyebrow{font-size:19px;color:var(--gold-400);line-height:1.3}
+#wd h1{font-size:92px;margin-top:30px;text-shadow:4px 4px 0 var(--purple-900)}
+#wd h1 em{font-style:normal;color:var(--gold-400)}
+#wd p{font-size:28px;line-height:1.25;margin-top:20px;max-width:520px}
+#wd .url{font-size:28px;color:var(--gold-400);margin-top:auto;padding-bottom:44px}
+#wd .r{width:470px;position:relative;flex:none}
+#wd .r .photo{position:absolute;inset:40px 40px 40px 0}
+#wd .sticker{left:-80px;bottom:40px;width:200px;height:200px;border-width:4px;box-shadow:6px 6px 0 var(--ink)}
+#wd .sticker b{font-size:58px}
+#wd .sticker span{font-size:20px;margin-top:4px}
+#wd .beads{position:absolute;left:0;right:0;bottom:0;height:20px;background-size:60px 100%,60px 100%,60px 100%,100% 2px;background-image:
+  radial-gradient(circle at 10px 50%,var(--purple-500) 0 9px,transparent 10px),
+  radial-gradient(circle at 30px 50%,var(--green-500) 0 9px,transparent 10px),
+  radial-gradient(circle at 50px 50%,var(--gold-400) 0 9px,transparent 10px),
+  linear-gradient(var(--ink),var(--ink))}
+</style>
+</head>
+<body>
+
+<!-- 1. Carousel slide 1 / feed post: the invite -->
+<section class="art sq confetti" id="c1">
+  <div class="top">
+    <img class="badge" src="../../../public/assets/logo/badge.jpg" alt="">
+    <div class="eyebrow">18th Annual Dash for the Beads<br>Sunday, Feb 7, 2027 · Oak Cliff</div>
+  </div>
+  <h1>Become a<br><em>Friend</em> of<br>the Dash</h1>
+  <div class="photo"><img src="../../../design-source/raw-assets/photos/costume-crew.png" alt="" style="object-position:50% 30%"></div>
+  <div class="sticker"><b>$250</b><span>Join today</span></div>
+  <div class="foot"><span><b>dashforthebeads.org</b></span><span>Swipe &rarr;</span></div>
+</section>
+
+<!-- 2. Carousel slide 2: what you get -->
+<section class="art sq" id="c2">
+  <div class="beads" style="margin:0"></div>
+  <div class="head">
+    <div class="eyebrow">Friends of the Dash</div>
+    <h2>What your<br><span>$250</span> gets you</h2>
+  </div>
+  <ul>
+    <li class="check">2 race entries<small>Run the 5K or the 1-mile Fun Run</small></li>
+    <li class="check">Your name on our website<small>Listed with our 2027 Friends of the Dash</small></li>
+    <li class="check">Oak Cliff kids who thrive<small>Net proceeds fund local schools and youth non-profits</small></li>
+  </ul>
+  <div class="card"><p>Neighbors, families,<br>and small businesses<br>all welcome</p><b>$250</b></div>
+  <div class="beads"></div>
+  <div class="foot"><span><b>dashforthebeads.org</b></span><span>Swipe &rarr;</span></div>
+</section>
+
+<!-- 3. Carousel slide 3: impact + how to join -->
+<section class="art sq confetti" id="c3">
+  <div class="stat">
+    <div class="eyebrow">Where your money goes</div>
+    <b>$450,000+</b>
+    <p>awarded to Oak Cliff schools and youth non-profits for fitness, healthy eating, and the arts.</p>
+  </div>
+  <div class="how">
+    <h3>Join in 3 steps</h3>
+    <ol>
+      <li>Send the form at the link in our bio</li>
+      <li>Pay by PayPal, Zelle, or check</li>
+      <li>See you on Davis Street, Feb 7!</li>
+    </ol>
+  </div>
+  <div class="cta">
+    <img class="badge" src="../../../public/assets/logo/badge.jpg" alt="">
+    <div class="url">dashforthebeads.org<small>info@dashforthebeads.org</small></div>
+  </div>
+  <div class="beads"></div>
+  <div class="foot"><span><b>Making every step count!</b></span><span>Laissez les bons temps rouler</span></div>
+</section>
+
+<!-- 4. Story / Reel cover (Instagram + Facebook stories) -->
+<section class="art story confetti" id="st">
+  <div class="photo"><img src="../../../design-source/raw-assets/photos/bead-throw.webp" alt="" style="object-position:50% 35%"></div>
+  <div class="top">
+    <img class="badge" src="../../../public/assets/logo/badge.jpg" alt="">
+    <div class="eyebrow">18th Annual Dash for the Beads<br>Sunday, Feb 7, 2027</div>
+  </div>
+  <div class="sticker"><b>$250</b><span>Join today</span></div>
+  <h1>Become a<br><em>Friend</em> of<br>the Dash</h1>
+  <ul>
+    <li class="check">2 race entries (5K or 1 mile)</li>
+    <li class="check">Your name on our website</li>
+    <li class="check">Helps Oak Cliff kids thrive</li>
+  </ul>
+  <div class="cta"><div class="url">Tap the link to join</div><small>dashforthebeads.org</small></div>
+  <div class="beads"></div>
+  <div class="foot"><span><b>Making every step count!</b></span></div>
+</section>
+
+<!-- 5. Wide: Facebook / LinkedIn / X post, 1200x630 -->
+<section class="art wide confetti" id="wd">
+  <div class="l">
+    <div class="row"><img class="badge" src="../../../public/assets/logo/badge.jpg" alt=""><div class="eyebrow">18th Annual Dash for the Beads<br>Sunday, Feb 7, 2027 · Oak Cliff</div></div>
+    <h1>Become a <em>Friend</em><br>of the Dash</h1>
+    <p>2 race entries, your name on our website, and Oak Cliff kids who thrive.</p>
+    <div class="url">dashforthebeads.org</div>
+  </div>
+  <div class="r">
+    <div class="photo"><img src="../../../design-source/raw-assets/photos/gold-shirts-legacy.webp" alt=""></div>
+    <div class="sticker"><b>$250</b><span>Join today</span></div>
+  </div>
+  <div class="beads"></div>
+</section>
+
+<script>
+  const a = new URLSearchParams(location.search).get('a');
+  if (a) { document.body.classList.add('single'); document.getElementById(a).classList.add('on'); }
+</script>
+</body>
+</html>
